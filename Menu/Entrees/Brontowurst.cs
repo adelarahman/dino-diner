@@ -20,13 +20,13 @@ namespace DinoDiner.Menu.Entrees
                 List<string> ingredients = new List<string>() { "Brautwurst" };
                 if (bread) ingredients.Add("Whole Wheat Bun");
                 if (peppers) ingredients.Add("Peppers");
-                if (onions) ingredients.Add("Onions");
+                if (onions) ingredients.Add("Onion");
                 return ingredients;
             }
         }
 
         public Brontowurst() {
-            this.Price = 4.25;
+            this.Price = 5.36;
             this.Calories = 498;
         }
 
