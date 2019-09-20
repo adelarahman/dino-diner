@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// The class for the T-Rex King Burger menu item that establishes the price, calories, and ingredients that are decided upon by the customer. 
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// A private bool that holds if bun is an ingredient or not. Decided by the customer.
@@ -47,45 +47,24 @@ namespace DinoDiner.Menu.Entrees
         private bool Mayo = true;
 
         /// <summary>
-        /// A public Price property holding the price for the menu item.
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// A public Calories property holding the calories for the menu item.
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
-        /// A public Ingredients property of a list that contains strings. Holds the menu items and if the customer chose to include certain items they are added to the list.
-        /// </summary>
-        public List<string> Ingredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>();
-                for (int i = 0; i < 3; i++)
-                {
-                    ingredients.Add("Steakburger Pattie");
-                }
-                if (Bun) ingredients.Add("Whole Wheat Bun");
-                if (Lettuce) ingredients.Add("Lettuce");
-                if (Tomato) ingredients.Add("Tomato");
-                if (Onion) ingredients.Add("Onion");
-                if (Pickle) ingredients.Add("Pickle");
-                if (Ketchup) ingredients.Add("Ketchup");
-                if (Mustard) ingredients.Add("Mustard");
-                if (Mayo) ingredients.Add("Mayo");
-                return ingredients;
-            }
-        }
-
-        /// <summary>
-        /// This public method sets the T-Rex King Burger price and calories to the ones given.
+        /// This public method sets the T-Rex King Burger price, calories, and ingredients to the ones given.
         /// </summary>
         public TRexKingBurger()
         {
-            this.Price = 8.45;
-            this.Calories = 728;
+            Price = 8.45;
+            Calories = 728;
+            for (int i = 0; i < 3; i++)
+            {
+                ingredients.Add("Steakburger Pattie");
+            }
+            ingredients.Add("Whole Wheat Bun");
+            ingredients.Add("Lettuce");
+            ingredients.Add("Tomato");
+            ingredients.Add("Onion");
+            ingredients.Add("Pickle");
+            ingredients.Add("Ketchup");
+            ingredients.Add("Mustard");
+            ingredients.Add("Mayo");
         }
 
         /// <summary>
@@ -93,6 +72,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
+            ingredients.Remove("Whole Wheat Bun");
             this.Bun = false;
         }
 
@@ -101,6 +81,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldLettuce()
         {
+            ingredients.Remove("Lettuce");
             this.Lettuce = false;
         }
 
@@ -109,6 +90,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldTomato()
         {
+            ingredients.Remove("Tomato");
             this.Tomato = false;
         }
 
@@ -117,6 +99,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldOnion()
         {
+            ingredients.Remove("Onion");
             this.Onion = false;
         }
 
@@ -125,6 +108,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPickle()
         {
+            ingredients.Remove("Pickle");
             this.Pickle = false;
         }
 
@@ -133,6 +117,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldKetchup()
         {
+            ingredients.Remove("Ketchup");
             this.Ketchup = false;
         }
 
@@ -141,6 +126,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMustard()
         {
+            ingredients.Remove("Mustard");
             this.Mustard = false;
         }
 
@@ -149,6 +135,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMayo()
         {
+            ingredients.Remove("Mayo");
             this.Mayo = false;
         }
     }

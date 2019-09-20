@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// The class for the Veloci Wrap menu item that establishes the price, calories, and ingredients that are decided upon by the customer. 
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
         /// <summary>
         /// A private bool that holds if dressing is an ingredient or not. Decided by the customer.
@@ -27,36 +27,17 @@ namespace DinoDiner.Menu.Entrees
         private bool Cheese = true;
 
         /// <summary>
-        /// A public Price property holding the price for the menu item.
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// A public Calories property holding the calories for the menu item.
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
-        /// A public Ingredients property of a list that contains strings. Holds the menu items and if the customer chose to include certain items they are added to the list.
-        /// </summary>
-        public List<string> Ingredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>() { "Flour Tortilla", "Chicken Breast" };
-                if (Dressing) ingredients.Add("Ceasar Dressing");
-                if (Lettuce) ingredients.Add("Romaine Lettuce");
-                if (Cheese) ingredients.Add("Parmesan Cheese");
-                return ingredients;
-            }
-        }
-
-        /// <summary>
-        /// This public method sets the Veloci Wrap price and calories to the ones given.
+        /// This public method sets the Veloci Wrap price, calories, and ingredients to the ones given.
         /// </summary>
         public VelociWrap()
         {
-            this.Price = 6.86;
-            this.Calories = 356;
+            Price = 6.86;
+            Calories = 356;
+            ingredients.Add("Flour Tortilla");
+            ingredients.Add("Chicken Breast");
+            ingredients.Add("Ceasar Dressing");
+            ingredients.Add("Romaine Lettuce");
+            ingredients.Add("Parmesan Cheese");
         }
 
         /// <summary>
@@ -64,6 +45,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldDressing()
         {
+            ingredients.Remove("Ceasar Dressing");
             this.Dressing = false;
         }
 
@@ -72,6 +54,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldLettuce()
         {
+            ingredients.Remove("Romaine Lettuce");
             this.Lettuce = false;
         }
 
@@ -80,6 +63,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldCheese()
         {
+            ingredients.Remove("Parmesan Cheese");
             this.Cheese = false;
         }
     }

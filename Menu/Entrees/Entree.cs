@@ -1,28 +1,18 @@
-﻿/*  Side.cs
-*   Author: Nathan Bean
-*   Modified By: Adela Rahman
+﻿/*  Entree.cs
+*   Author: Adela Rahman
 */
 
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu.Entrees
 {
-
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
     /// <summary>
-    /// Abstract class that is inherited into the entrees for the price, calories, read-only ingredients, and size.
+    /// Abstract class that is inherited into the entrees for the price, calories, and read-only ingredients
     /// </summary>
-    public abstract class Side
+    public abstract class Entree
     {
-        protected List<string> ingredients = new List<string>();
         /// <summary>
         /// Gets and sets the price
         /// </summary>
@@ -33,6 +23,8 @@ namespace DinoDiner.Menu.Sides
         /// </summary>
         public uint Calories { get; set; }
 
+        protected List<string> ingredients = new List<string>();
+
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
@@ -40,11 +32,6 @@ namespace DinoDiner.Menu.Sides
         {
             get { return ingredients; }
         }
-
-        /// <summary>
-        /// Gets or sets the size
-        /// </summary>
-        public virtual Size Size { get; set; }
 
     }
 }
