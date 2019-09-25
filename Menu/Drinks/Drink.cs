@@ -4,12 +4,6 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public enum Size
-    {
-        Small,
-        Medium,
-        Large
-    }
 
     public abstract class Drink
     {
@@ -37,14 +31,11 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public virtual Size Size { get; set; }
 
-        public virtual bool Ice
-        {
-            get { return true; }
-        }
+        public bool Ice { get; set; } = true;
 
-        public void HoldIce()
+        public virtual void HoldIce()
         {
-            Ice.Equals(false);
+            Ice = false;
         }
     }
 }

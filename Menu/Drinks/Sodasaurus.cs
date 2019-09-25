@@ -8,54 +8,44 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public enum SodasaurusFlavor
-    {
-        Cola, 
-        Orange,
-        Vanilla,
-        Chocolate,
-        RootBeer,
-        Cherry,
-        Lime
-    }
 
     public class Sodasaurus : Drink
     {
+        private SodasaurusFlavor flavor;
+
         /// <summary>
         /// Gets or sets the Flavor.
         /// </summary>
-        public virtual SodasaurusFlavor Flavor { get; set; }
+        public SodasaurusFlavor Flavor {
+            get { return flavor; }
+            set { flavor = value; }
+        }
 
         /// <summary>
         /// The private size of the side for this class.
         /// </summary>
         private Size size;
 
-        /// <summary>
-        /// A public override for size. The size is equal to the value. The set switches price and calories depending on the size value. The get returns the size.
-        /// </summary>
-        public override Size Size
-        {
-            set
-            {
+        public Size Size {
+            get { return size; }
+            set {
                 size = value;
-                switch (size)
+                if(size == Size.Small)
                 {
-                    case Size.Small:
-                        Price = 1.50;
-                        Calories = 112;
-                        break;
-                    case Size.Medium:
-                        Price = 2.00;
-                        Calories = 156;
-                        break;
-                    case Size.Large:
-                        Price = 2.50;
-                        Calories = 208;
-                        break;
+                    Price = 1.50;
+                    Calories = 112;
+                }
+                else if(size == Size.Medium)
+                {
+                    Price = 2.00;
+                    Calories = 156;
+                }
+                else
+                {
+                    Price = 2.50;
+                    Calories = 208;
                 }
             }
-            get { return size; }
         }
 
         /// <summary>
