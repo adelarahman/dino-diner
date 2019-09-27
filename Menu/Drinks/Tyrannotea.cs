@@ -8,10 +8,19 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
+    /// <summary>
+    /// The public class for the drink Tyrannotea that inherits from the Drink base class.
+    /// </summary>
     public class Tyrannotea : Drink
     {
+        /// <summary>
+        /// A public bool property that holds if the drink will be sweet. Is initially false.
+        /// </summary>
         public bool Sweet { get; set; } = false;
 
+        /// <summary>
+        /// A public bool property that holds if lemon should be added to the drink. Is initially false.
+        /// </summary>
         public bool Lemon { get; set; } = false;
 
         /// <summary>
@@ -19,6 +28,9 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         private Size size;
 
+        /// <summary>
+        /// A public size property. The private size is equal to the value. The set switches price and calories depending on the size value. The get returns the private size. If sweet, a temporary variable doubles the price and calories. If not, the variable stays one.
+        /// </summary>
         public Size Size
         {
             get { return size; }
@@ -63,12 +75,18 @@ namespace DinoDiner.Menu.Drinks
             ingredients.Add("Tea");
         }
 
+        /// <summary>
+        /// A public method, named AddSugar, that sets the Sweet property to be true. Also adds cane sugar to the ingredient list.
+        /// </summary>
         public void AddSugar()
         {
             Sweet = true;
-            ingredients.Add("Cane Suger");
+            ingredients.Add("Cane Sugar");
         }
 
+        /// <summary>
+        /// A public method, named AddLemon, that sets the Lemon property to be true. Also adds lemon to the ingredient list.
+        /// </summary>
         public void AddLemon()
         {
             Lemon = true;

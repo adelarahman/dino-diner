@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  SodasaurusTest.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu.Drinks;
@@ -157,6 +161,18 @@ namespace MenuTest.Drinks
             Sodasaurus soda = new Sodasaurus();
             soda.HoldIce();
             Assert.False(soda.Ice);
+        }
+
+        // The correct ingredients are given.
+
+        [Fact]
+        public void ShouldListDefaultIngredients()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            List<string> ingredients = soda.Ingredients;
+            Assert.Contains<string>("Water", ingredients);
+            Assert.Contains<string>("Natural Flavors", ingredients);
+            Assert.Contains<string>("Cane Sugar", ingredients);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// A public override for size. The size is equal to the value. The set switches price and calories depending on the size value. The get returns the size.
         /// </summary>
-        public override Size Size
+        public Size Size
         {
             set
             {

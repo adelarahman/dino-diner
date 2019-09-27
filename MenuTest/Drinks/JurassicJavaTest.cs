@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  JurassicJavaTest.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu.Drinks;
@@ -98,14 +102,14 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(8, java.Calories);
         }
 
-        // That invoking HoldIce() results in the Ice property being false
+        // That invoking AddIce() results in the Ice property being true
 
         [Fact]
-        public void InvokingHoldIceResultsInIcePropertyBeingFalse()
+        public void InvokingAddIceResultsInIcePropertyBeingTrue()
         {
             JurrasicJava java = new JurrasicJava();
-            java.HoldIce();
-            Assert.False(java.Ice);
+            java.AddIce();
+            Assert.True(java.Ice);
         }
 
         // That invoking LeaveSpaceForCream() results in the SpaceForCream property being true.
@@ -117,6 +121,17 @@ namespace MenuTest.Drinks
             java.LeaveSpaceForCream();
             Assert.True(java.RoomForCream);
 
+        }
+
+        // The correct ingredients are given.
+
+        [Fact]
+        public void ShouldListDefaultIngredients()
+        {
+            JurrasicJava java = new JurrasicJava();
+            List<string> ingredients = java.Ingredients;
+            Assert.Contains<string>("Water", ingredients);
+            Assert.Contains<string>("Coffee", ingredients);
         }
     }
 }

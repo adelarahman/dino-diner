@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  Tyrannotea.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu.Drinks;
@@ -9,7 +13,7 @@ namespace MenuTest.Drinks
 {
     public class TyrannoteaTest
     {
-        //The correct default price, calories, ice, size, lemon, and sweet properties.
+        // The correct default price, calories, ice, size, lemon, and sweet properties.
 
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
@@ -53,7 +57,7 @@ namespace MenuTest.Drinks
             Assert.False(tea.Sweet);
         }
 
-        //The correct price and calories after changing to small, medium, and large sizes.
+        // The correct price and calories after changing to small, medium, and large sizes.
 
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSmall()
@@ -105,7 +109,7 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(32, tea.Calories);
         }
 
-        //That invoking HoldIce() results in the Ice property being false
+        // That invoking HoldIce() results in the Ice property being false
 
         [Fact]
         public void InvokingHoldIceResultsInIcePropertyBeingFalse()
@@ -115,7 +119,7 @@ namespace MenuTest.Drinks
             Assert.False(tea.Ice);
         }
 
-        //That invoking AddLemon() sets results in the Lemon property being true.
+        // That invoking AddLemon() sets results in the Lemon property being true.
 
         [Fact]
         public void InvokingAddLemonSetsResultsInLemonPropertyToTrue()
@@ -125,7 +129,7 @@ namespace MenuTest.Drinks
             Assert.True(tea.Lemon);
         }
 
-        //That setting the sweet property to true results in the right calories for each size
+        // That setting the sweet property to true results in the right calories for each size
 
         [Fact]
         public void SweetPropertyToTrueResultsInRightCaloriesForSmall()
@@ -157,15 +161,15 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(teaLargeExpectedCalories, teaLarge.Calories);
         }
 
-        //That setting the sweet property to false (after it has been set to true) results in the right calories for each size.
+        // That setting the sweet property to false (after it has been set to true) results in the right calories for each size.
 
         [Fact]
         public void SweetPropertyToFalseResultsInRightCaloriesForSmall()
         {
             uint teaSmallExpectedCalories = 8;
             Tyrannotea teaSmall = new Tyrannotea();
-            //teaSmall.AddSugar();
-            //Assert.False(teaSmall.Sweet);
+            teaSmall.AddSugar();
+            teaSmall.Sweet = false;
             teaSmall.Size = Size.Small;
             Assert.Equal<uint>(teaSmallExpectedCalories, teaSmall.Calories);
         }
@@ -175,8 +179,8 @@ namespace MenuTest.Drinks
         {
             uint teaMediumExpectedCalories = 16;
             Tyrannotea teaMedium = new Tyrannotea();
-            //teaMedium.AddSugar();
-            //Assert.False(teaMedium.Sweet);
+            teaMedium.AddSugar();
+            teaMedium.Sweet = false;
             teaMedium.Size = Size.Medium;
             Assert.Equal<uint>(teaMediumExpectedCalories, teaMedium.Calories);
         }
@@ -186,10 +190,42 @@ namespace MenuTest.Drinks
         {
             uint teaLargeExpectedCalories = 32;
             Tyrannotea teaLarge = new Tyrannotea();
-            //teaLarge.AddSugar();
-            //Assert.False(teaLarge.Sweet);
+            teaLarge.AddSugar();
+            teaLarge.Sweet = false;
             teaLarge.Size = Size.Large;
             Assert.Equal<uint>(teaLargeExpectedCalories, teaLarge.Calories);
         }
+
+        // The correct ingredients are given.
+
+        [Fact]
+        public void ShouldListDefaultIngredients()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            List<string> ingredients = tea.Ingredients;
+            Assert.Contains<string>("Water", ingredients);
+            Assert.Contains<string>("Tea", ingredients);
+        }
+
+        // That invoking AddLemon adds lemon to the ingredients.
+        [Fact]
+        public void InvokingAddLemonAddsLemonToIngredients()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            Assert.Contains<string>("Lemon", tea.Ingredients);
+        }
+
+        
+        //That invoking AddSugar adds sugar to the ingredients.
+        [Fact]
+        public void InvokingAddSugarAddsSugarToIngredients()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddSugar();
+            Assert.Contains<string>("Cane Sugar", tea.Ingredients);
+        }
+
+
     }
 }

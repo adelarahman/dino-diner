@@ -10,13 +10,6 @@ using System.Text;
 namespace DinoDiner.Menu.Sides
 {
 
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
     /// <summary>
     /// Abstract class that is inherited into the entrees for the price, calories, read-only ingredients, and size.
     /// </summary>

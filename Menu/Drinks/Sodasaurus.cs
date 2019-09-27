@@ -8,9 +8,14 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-
+    /// <summary>
+    /// The public class for the drink SodaSaurus that inherits from the Drink base class.
+    /// </summary>
     public class Sodasaurus : Drink
     {
+        /// <summary>
+        /// A private flavor calling the SodasaurusFlavor enum.
+        /// </summary>
         private SodasaurusFlavor flavor;
 
         /// <summary>
@@ -26,6 +31,9 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         private Size size;
 
+        /// <summary>
+        /// A public size property. The private size is equal to the value. The set switches price and calories depending on the size value. The get returns the private size.
+        /// </summary>
         public Size Size {
             get { return size; }
             set {

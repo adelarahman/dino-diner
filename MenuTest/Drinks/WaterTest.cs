@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  WaterTest.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu.Drinks;
@@ -116,6 +120,25 @@ namespace MenuTest.Drinks
             Water water = new Water();
             water.AddLemon();
             Assert.True(water.Lemon);
+        }
+
+        // The correct ingredients are given.
+
+        [Fact]
+        public void ShouldListDefaultIngredients()
+        {
+            Water water = new Water();
+            List<string> ingredients = water.Ingredients;
+            Assert.Contains<string>("Water", ingredients);
+        }
+
+        // That invoking AddLemon adds lemon to the ingredients.
+        [Fact]
+        public void InvokingAddLemonAddsLemonToIngredients()
+        {
+            Water water = new Water();
+            water.AddLemon();
+            Assert.Contains<string>("Lemon", water.Ingredients);
         }
     }
 }
