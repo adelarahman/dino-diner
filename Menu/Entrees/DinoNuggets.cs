@@ -11,12 +11,17 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The class for the Dino Nuggets menu item that establishes the price, calories, and number of chicken nuggets that are decided upon by the customer. 
     /// </summary>
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, IMenuItem
     {
         /// <summary>
         /// a private uint that holds the amount of nuggets in this menu item. Is six.
         /// </summary>
         private uint NuggetCount = 6;
+
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
+        }
 
         /// <summary>
         /// This public method sets the Dino nuggets price, calories, and ingredients to the ones given.

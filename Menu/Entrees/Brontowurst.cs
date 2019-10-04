@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The class for the Brontowurst menu item that establishes the price, calories, and ingredients that are decided upon by the customer. 
     /// </summary>
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, IMenuItem
     {
         /// <summary>
         /// A private bool that holds if bread is an ingredient or not. Decided by the customer.
@@ -25,6 +25,11 @@ namespace DinoDiner.Menu
         /// A private bool that holds if onions is an ingredient or not. Decided by the customer.
         /// </summary>
         private bool Onions = true;
+
+        public override string ToString()
+        {
+            return "Brontowurst";
+        }
 
         /// <summary>
         /// This public method sets the Brontowurst price, calories, and ingredients to the ones given.

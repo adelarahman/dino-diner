@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the drink JurrasicJava that inherits from the Drink base class.
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurrasicJava : Drink, IMenuItem
     {
         /// <summary>
         /// A public bool property that holds if Ice is an ingredient or not. Overrides the one from the abstract class to be initially false.

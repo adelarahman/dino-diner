@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the side MezzorellaSticks that inherits from the Side base class.
     /// </summary>
-    public class MezzorellaSticks : Side
+    public class MezzorellaSticks : Side, IMenuItem
     {
         /// <summary>
         /// The private size of the side for this class.
@@ -43,6 +43,11 @@ namespace DinoDiner.Menu
                 }
             }
             get { return size; }
+        }
+
+        public override string ToString()
+        {
+            return Size.ToString() + " Mezzorella Sticks";
         }
 
         /// <summary>

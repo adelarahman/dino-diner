@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The class for the Veloci Wrap menu item that establishes the price, calories, and ingredients that are decided upon by the customer. 
     /// </summary>
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, IMenuItem
     {
         /// <summary>
         /// A private bool that holds if dressing is an ingredient or not. Decided by the customer.
@@ -25,6 +25,11 @@ namespace DinoDiner.Menu
         /// A private bool that holds if cheese is an ingredient or not. Decided by the customer.
         /// </summary>
         private bool Cheese = true;
+
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
+        }
 
         /// <summary>
         /// This public method sets the Veloci Wrap price, calories, and ingredients to the ones given.

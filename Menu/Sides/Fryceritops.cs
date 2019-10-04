@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the side Fryceritops that inherits from the Side base class.
     /// </summary>
-    public class Fryceritops : Side
+    public class Fryceritops : Side, IMenuItem
     {
         /// <summary>
         /// The private size of the side for this class.
@@ -43,6 +43,11 @@ namespace DinoDiner.Menu
                 }
             }
             get { return size; }
+        }
+
+        public override string ToString()
+        {
+            return Size.ToString() + " Friceritops";
         }
 
         /// <summary>

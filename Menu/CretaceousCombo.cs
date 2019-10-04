@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo
+    public class CretaceousCombo: IMenuItem
     {
         public Entree Entree { get; set; }
 

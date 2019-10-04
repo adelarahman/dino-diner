@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the drink SodaSaurus that inherits from the Drink base class.
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, IMenuItem
     {
         /// <summary>
         /// A private flavor calling the SodasaurusFlavor enum.

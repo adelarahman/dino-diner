@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the side Triceritots that inherits from the Side base class.
     /// </summary>
-    public class Triceritots : Side
+    public class Triceritots : Side, IMenuItem
     {
         /// <summary>
         /// The private size of the side for this class.
@@ -41,6 +41,11 @@ namespace DinoDiner.Menu
                 }
             }
             get { return size; }
+        }
+
+        public override string ToString()
+        {
+            return Size.ToString() + " Triceritots";
         }
 
         /// <summary>

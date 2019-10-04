@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the drink Water that inherits from the Drink base class.
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, IMenuItem
     {
 
         /// <summary>
