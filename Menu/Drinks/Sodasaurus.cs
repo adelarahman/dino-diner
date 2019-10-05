@@ -58,7 +58,8 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return Size.ToString() + Flavor.ToString() + " Sodasaurus";
+            return Size.ToString() + " " + Flavor.ToString() + " Sodasaurus";
+
         }
 
         /// <summary>

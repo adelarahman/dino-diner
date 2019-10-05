@@ -72,7 +72,7 @@ namespace DinoDiner.Menu
             }
             else
             {
-                return Size.ToString() + " Tyrranotea";
+                return Size.ToString() + " Tyrannotea";
             }
         }
 

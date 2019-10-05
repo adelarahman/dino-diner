@@ -85,11 +85,11 @@ namespace DinoDiner.Menu
         {
             if (Decaf)
             {
-                return Size.ToString() + " Decaf Jurrasic Java";
+                return Size.ToString() + " Decaf Jurassic Java";
             }
             else
             {
-                return Size.ToString() + " Jurrasic Java";
+                return Size.ToString() + " Jurassic Java";
             }
         }
 

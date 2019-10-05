@@ -6,7 +6,7 @@ namespace DinoDiner.Menu
 {
     public class Menu
     {
-        public string AvailableMenuItems
+        public List<object> AvailableMenuItems
         {
             get 
             {
@@ -14,14 +14,20 @@ namespace DinoDiner.Menu
                 menu.AddRange(AvailableEntrees);
                 menu.AddRange(AvailableSides);
                 menu.AddRange(AvailableDrinks);
-                StringBuilder sb = new StringBuilder();
-                foreach(object ob in AvailableMenuItems)
-                {
-                    sb.Append(ob.ToString());
-                    sb.Append("\n");
-                }
-                return sb.ToString();
+                menu.AddRange(AvailableCombos);
+                return menu;
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (object ob in AvailableMenuItems)
+            {
+                sb.Append(ob.ToString());
+                sb.Append("\n");
+            }
+            return sb.ToString();
         }
 
         public List<object> AvailableEntrees
@@ -86,7 +92,28 @@ namespace DinoDiner.Menu
             get
             {
                 List<object> combos = new List<object>();
-                Entree entree = new Entree();
+                Brontowurst bw = new Brontowurst();
+                DinoNuggets dn = new DinoNuggets();
+                PrehistoricPBJ pb = new PrehistoricPBJ();
+                PterodactylWings pw = new PterodactylWings();
+                SteakosaurusBurger sb = new SteakosaurusBurger();
+                TRexKingBurger rexKingBurger = new TRexKingBurger();
+                VelociWrap vw = new VelociWrap();
+                CretaceousCombo cone = new CretaceousCombo(bw);
+                CretaceousCombo ctwo = new CretaceousCombo(dn);
+                CretaceousCombo cthree = new CretaceousCombo(pb);
+                CretaceousCombo cfour = new CretaceousCombo(pw);
+                CretaceousCombo cfive = new CretaceousCombo(sb);
+                CretaceousCombo csix = new CretaceousCombo(rexKingBurger);
+                CretaceousCombo cseven = new CretaceousCombo(vw);
+                combos.Add(cone);
+                combos.Add(ctwo);
+                combos.Add(cthree);
+                combos.Add(cfour);
+                combos.Add(cfive);
+                combos.Add(csix);
+                combos.Add(cseven);
+                return combos;
             }
         }
 
