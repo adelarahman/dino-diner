@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  CretaceousCombo.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +10,19 @@ namespace DinoDiner.Menu
 {
     public class CretaceousCombo: IMenuItem
     {
+        /// <summary>
+        /// Gets and sets the Entree for this class.
+        /// </summary>
         public Entree Entree { get; set; }
 
+        /// <summary>
+        /// Private Side for this class.
+        /// </summary>
         private Side side;
+
+        /// <summary>
+        /// Gets the side for this class and sets which it is and the size.
+        /// </summary>
         public Side Side {
             get { return side; }
             set
@@ -18,7 +32,14 @@ namespace DinoDiner.Menu
             } 
         }
 
+        /// <summary>
+        /// Private Drink for this class.
+        /// </summary>
         private Drink drink;
+
+        /// <summary>
+        /// Gets the drink for this class and sets which it is and the size.
+        /// </summary>
         public Drink Drink {
             get { return drink; }
             set
@@ -29,6 +50,9 @@ namespace DinoDiner.Menu
 
         }
 
+        /// <summary>
+        /// Gets the price of the combo.
+        /// </summary>
         public double Price
         {
             get
@@ -37,6 +61,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets the calories of the combo.
+        /// </summary>
         public uint Calories
         {
             get
@@ -45,7 +72,14 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Private size for this class. Is small.
+        /// </summary>
         private Size size = Size.Small;
+
+        /// <summary>
+        /// Gets the size and sets it for the drink and side.
+        /// </summary>
         public Size Size
         {
             get { return size; }
@@ -57,6 +91,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets and returns the list of ingredients for this class.
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -69,11 +106,18 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return Entree.ToString() + " Combo";
         }
 
+        /// <summary>
+        /// A public constructor setting the price and calories for this class.
+        /// </summary>
         public CretaceousCombo(Entree entree)
         {
             Entree = entree;

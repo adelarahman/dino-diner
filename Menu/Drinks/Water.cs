@@ -1,4 +1,4 @@
-﻿/*  Tyrannotea.cs
+﻿/*  Water.cs
 *   Author: Adela Rahman
 */
 
@@ -52,19 +52,38 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// A public constructor setting the price, calories, and read-only ingredients for this class.
+        /// Overrides the ToString() method to follow the naming convention needed.
         /// </summary>
-
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return Size.ToString() + " Water";
         }
 
+        /// <summary>
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                if(Lemon)
+                {
+                    ingredients.Add("Lemon");
+                }
+                return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// A public constructor setting the price and calories for this class.
+        /// </summary>
         public Water()
         {
             Price = 0.10;
             Calories = 0;
-            ingredients.Add("Water");
         }
 
         /// <summary>
@@ -73,7 +92,6 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
-            ingredients.Add("Lemon");
         }
     }
 }

@@ -1,11 +1,21 @@
-﻿using System;
+﻿/*  Menu.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// The public menu class that holds all availale entrees, sides, drinks, and combos in the dino diner menu namespace.
+    /// </summary>
     public class Menu
     {
+        /// <summary>
+        /// Gets a list containing one instance of every menu item currently offered by DinoDiner.
+        /// </summary>
         public List<object> AvailableMenuItems
         {
             get 
@@ -19,6 +29,10 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Overrides the ToString to make a list where each object in Available menu items is added as their full menu content, each to be followed by a new line.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -30,82 +44,94 @@ namespace DinoDiner.Menu
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Gets each instance of all the available entrees, adds each to the list.
+        /// </summary>
         public List<object> AvailableEntrees
         {
             get
             {
                 List<object> entrees = new List<object>();
-                Brontowurst bw = new Brontowurst();
-                DinoNuggets dn = new DinoNuggets();
+                Brontowurst brontowurst = new Brontowurst();
+                DinoNuggets dinonuggets = new DinoNuggets();
                 PrehistoricPBJ pb = new PrehistoricPBJ();
-                PterodactylWings pw = new PterodactylWings();
-                SteakosaurusBurger sb = new SteakosaurusBurger();
-                TRexKingBurger rexKingBurger = new TRexKingBurger();
-                VelociWrap vw = new VelociWrap();
-                entrees.Add(bw);
-                entrees.Add(dn);
+                PterodactylWings pterodactylwings = new PterodactylWings();
+                SteakosaurusBurger steakosaurusburger = new SteakosaurusBurger();
+                TRexKingBurger trexburger = new TRexKingBurger();
+                VelociWrap velociwrap = new VelociWrap();
+                entrees.Add(brontowurst);
+                entrees.Add(dinonuggets);
                 entrees.Add(pb);
-                entrees.Add(pw);
-                entrees.Add(sb);
-                entrees.Add(rexKingBurger);
-                entrees.Add(vw);
+                entrees.Add(pterodactylwings);
+                entrees.Add(steakosaurusburger);
+                entrees.Add(trexburger);
+                entrees.Add(velociwrap);
                 return entrees;
             }
         }
 
+        /// <summary>
+        /// Gets each instance of all the available sides, adds each to the list.
+        /// </summary>
         public List<object> AvailableSides
         {
             get
             {
                 List<object> sides = new List<object>();
-                Fryceritops fr = new Fryceritops();
-                MeteorMacAndCheese mac = new MeteorMacAndCheese();
-                MezzorellaSticks ms = new MezzorellaSticks();
-                Triceritots tt = new Triceritots();
-                sides.Add(fr);
-                sides.Add(mac);
-                sides.Add(ms);
-                sides.Add(tt);
+                Fryceritops fryceritops = new Fryceritops();
+                MeteorMacAndCheese macandcheese = new MeteorMacAndCheese();
+                MezzorellaSticks mezzorellasticks = new MezzorellaSticks();
+                Triceritots triceritots = new Triceritots();
+                sides.Add(fryceritops);
+                sides.Add(macandcheese);
+                sides.Add(mezzorellasticks);
+                sides.Add(triceritots);
                 return sides;
             }
         }
 
+        /// <summary>
+        /// Gets each instance of all the available drinks, adds each to the list.
+        /// </summary>
         public List<object> AvailableDrinks
         {
             get
             {
                 List<object> drinks = new List<object>();
-                JurrasicJava jj = new JurrasicJava();
-                Sodasaurus ss = new Sodasaurus();
-                Tyrannotea tt = new Tyrannotea();
-                Water w = new Water();
-                drinks.Add(jj);
-                drinks.Add(ss);
-                drinks.Add(tt);
-                drinks.Add(w);
+                JurrasicJava java = new JurrasicJava();
+                Sodasaurus soda = new Sodasaurus();
+                Tyrannotea tea = new Tyrannotea();
+                Water water = new Water();
+                drinks.Add(java);
+                drinks.Add(soda);
+                drinks.Add(tea);
+                drinks.Add(water);
                 return drinks;
             }
         }
 
+        /// <summary>
+        /// Gets each instance of all the available combos, adds each to the list.
+        /// </summary>
         public List<object> AvailableCombos
         {
             get
             {
                 List<object> combos = new List<object>();
-                Brontowurst bw = new Brontowurst();
-                DinoNuggets dn = new DinoNuggets();
+                Brontowurst brontowurst = new Brontowurst();
+                DinoNuggets dinonuggets = new DinoNuggets();
                 PrehistoricPBJ pb = new PrehistoricPBJ();
-                PterodactylWings pw = new PterodactylWings();
-                SteakosaurusBurger sb = new SteakosaurusBurger();
-                TRexKingBurger rexKingBurger = new TRexKingBurger();
-                VelociWrap vw = new VelociWrap();
-                CretaceousCombo cone = new CretaceousCombo(bw);
-                CretaceousCombo ctwo = new CretaceousCombo(dn);
+                PterodactylWings pterodactylwings = new PterodactylWings();
+                SteakosaurusBurger steakosaurusburger = new SteakosaurusBurger();
+                TRexKingBurger trexburger = new TRexKingBurger();
+                VelociWrap velociwrap = new VelociWrap();
+                CretaceousCombo cone = new CretaceousCombo(brontowurst);
+                CretaceousCombo ctwo = new CretaceousCombo(dinonuggets);
                 CretaceousCombo cthree = new CretaceousCombo(pb);
-                CretaceousCombo cfour = new CretaceousCombo(pw);
-                CretaceousCombo cfive = new CretaceousCombo(sb);
-                CretaceousCombo csix = new CretaceousCombo(rexKingBurger);
-                CretaceousCombo cseven = new CretaceousCombo(vw);
+                CretaceousCombo cfour = new CretaceousCombo(pterodactylwings);
+                CretaceousCombo cfive = new CretaceousCombo(steakosaurusburger);
+                CretaceousCombo csix = new CretaceousCombo(trexburger);
+                CretaceousCombo cseven = new CretaceousCombo(velociwrap);
                 combos.Add(cone);
                 combos.Add(ctwo);
                 combos.Add(cthree);
@@ -115,8 +141,6 @@ namespace DinoDiner.Menu
                 combos.Add(cseven);
                 return combos;
             }
-        }
-
-        
+        } 
     }
 }

@@ -26,9 +26,29 @@ namespace DinoDiner.Menu
         /// </summary>
         private bool Onions = true;
 
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return "Brontowurst";
+        }
+
+        /// <summary>
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Brautwurst");
+                ingredients.Add("Whole Wheat Bun");
+                ingredients.Add("Peppers");
+                ingredients.Add("Onion");
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -37,10 +57,6 @@ namespace DinoDiner.Menu
         public Brontowurst() {
             Price = 5.36;
             Calories = 498;
-            ingredients.Add("Brautwurst");
-            ingredients.Add("Whole Wheat Bun");
-            ingredients.Add("Peppers");
-            ingredients.Add("Onion");
         }
 
         /// <summary>

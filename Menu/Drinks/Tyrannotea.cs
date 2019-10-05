@@ -64,6 +64,10 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             if (Sweet)
@@ -77,14 +81,34 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// A public constructor setting the price, calories, and read-only ingredients for this class.
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Tea");
+                if(Sweet)
+                {
+                    ingredients.Add("Cane Sugar");
+                }
+                if(Lemon)
+                {
+                    ingredients.Add("Lemon");
+                }
+                return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// A public constructor setting the price and calories for this class.
         /// </summary>
         public Tyrannotea()
         {
             Price = 0.99;
             Calories = 8;
-            ingredients.Add("Water");
-            ingredients.Add("Tea");
         }
 
         /// <summary>
@@ -93,7 +117,6 @@ namespace DinoDiner.Menu
         public void AddSugar()
         {
             Sweet = true;
-            ingredients.Add("Cane Sugar");
         }
 
         /// <summary>
@@ -102,7 +125,6 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
-            ingredients.Add("Lemon");
         }
     }
 }

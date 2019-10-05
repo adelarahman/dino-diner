@@ -45,9 +45,28 @@ namespace DinoDiner.Menu
             get { return size; }
         }
 
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return Size.ToString() + " Mezzorella Sticks";
+        }
+
+        /// <summary>
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Cheese Product");
+                ingredients.Add("Breading");
+                ingredients.Add("Vegetable Oil");
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -57,9 +76,6 @@ namespace DinoDiner.Menu
         {
             Price = 0.99;
             Calories = 540;
-            ingredients.Add("Cheese Product");
-            ingredients.Add("Breading");
-            ingredients.Add("Vegetable Oil");
         }
     }
 }

@@ -30,9 +30,30 @@ namespace DinoDiner.Menu
         /// </summary>
         private bool Mustard = true;
 
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return "Steakosaurus Burger";
+        }
+
+        /// <summary>
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Steakburger Pattie");
+                ingredients.Add("Whole Wheat Bun");
+                ingredients.Add("Pickle");
+                ingredients.Add("Ketchup");
+                ingredients.Add("Mustard");
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -42,11 +63,6 @@ namespace DinoDiner.Menu
         {
             Price = 5.15;
             Calories = 621;
-            ingredients.Add("Steakburger Pattie");
-            ingredients.Add("Whole Wheat Bun");
-            ingredients.Add("Pickle");
-            ingredients.Add("Ketchup");
-            ingredients.Add("Mustard");
         }
 
         /// <summary>

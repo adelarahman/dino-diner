@@ -45,9 +45,28 @@ namespace DinoDiner.Menu
             get { return size; }
         }
 
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return Size.ToString() + " Meteor Mac and Cheese";
+        }
+
+        /// <summary>
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Macaroni Noodles");
+                ingredients.Add("Cheese Product");
+                ingredients.Add("Pork Sausage");
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -57,9 +76,6 @@ namespace DinoDiner.Menu
         {
             Price = 0.99;
             Calories = 420;
-            ingredients.Add("Macaroni Noodles");
-            ingredients.Add("Cheese Product");
-            ingredients.Add("Pork Sausage");
         }
     }
 }

@@ -46,9 +46,37 @@ namespace DinoDiner.Menu
         /// </summary>
         private bool Mayo = true;
 
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return "T-Rex King Burger";
+        }
+
+        /// <summary>
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                for (int i = 0; i < 3; i++)
+                {
+                    ingredients.Add("Steakburger Pattie");
+                }
+                ingredients.Add("Whole Wheat Bun");
+                ingredients.Add("Lettuce");
+                ingredients.Add("Tomato");
+                ingredients.Add("Onion");
+                ingredients.Add("Pickle");
+                ingredients.Add("Ketchup");
+                ingredients.Add("Mustard");
+                ingredients.Add("Mayo");
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -58,18 +86,6 @@ namespace DinoDiner.Menu
         {
             Price = 8.45;
             Calories = 728;
-            for (int i = 0; i < 3; i++)
-            {
-                ingredients.Add("Steakburger Pattie");
-            }
-            ingredients.Add("Whole Wheat Bun");
-            ingredients.Add("Lettuce");
-            ingredients.Add("Tomato");
-            ingredients.Add("Onion");
-            ingredients.Add("Pickle");
-            ingredients.Add("Ketchup");
-            ingredients.Add("Mustard");
-            ingredients.Add("Mayo");
         }
 
         /// <summary>

@@ -26,9 +26,30 @@ namespace DinoDiner.Menu
         /// </summary>
         private bool Cheese = true;
 
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return "Veloci-Wrap";
+        }
+
+        /// <summary>
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Flour Tortilla");
+                ingredients.Add("Chicken Breast");
+                ingredients.Add("Ceasar Dressing");
+                ingredients.Add("Romaine Lettuce");
+                ingredients.Add("Parmesan Cheese");
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -38,11 +59,6 @@ namespace DinoDiner.Menu
         {
             Price = 6.86;
             Calories = 356;
-            ingredients.Add("Flour Tortilla");
-            ingredients.Add("Chicken Breast");
-            ingredients.Add("Ceasar Dressing");
-            ingredients.Add("Romaine Lettuce");
-            ingredients.Add("Parmesan Cheese");
         }
 
         /// <summary>
@@ -50,7 +66,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldDressing()
         {
-            ingredients.Remove("Ceasar Dressing");
             this.Dressing = false;
         }
 
@@ -59,7 +74,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldLettuce()
         {
-            ingredients.Remove("Romaine Lettuce");
             this.Lettuce = false;
         }
 
@@ -68,7 +82,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldCheese()
         {
-            ingredients.Remove("Parmesan Cheese");
             this.Cheese = false;
         }
     }

@@ -18,6 +18,10 @@ namespace DinoDiner.Menu
         /// </summary>
         private uint NuggetCount = 6;
 
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return "Dino-Nuggets";
@@ -26,14 +30,28 @@ namespace DinoDiner.Menu
         /// <summary>
         /// This public method sets the Dino nuggets price, calories, and ingredients to the ones given.
         /// </summary>
+        /// 
+
+        /// <summary>
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                for (int i = 0; i < NuggetCount; i++)
+                {
+                    ingredients.Add("Chicken Nugget");
+                }
+                return ingredients;
+            }
+        }
+
         public DinoNuggets()
         {
             Price = 4.25;
             Calories = 59*6;
-            for (int i = 0; i < NuggetCount; i++)
-            {
-                ingredients.Add("Chicken Nugget");
-            }
         }
 
         /// <summary>

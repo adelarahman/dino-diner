@@ -13,10 +13,27 @@ namespace DinoDiner.Menu
     /// </summary>
     public class PterodactylWings : Entree
     {
-
+        /// <summary>
+        /// Overrides the ToString() method to follow the naming convention needed.
+        /// </summary>
+        /// <returns>The name of this item.</returns>
         public override string ToString()
         {
             return "Pterodactyl Wings";
+        }
+
+        /// <summary>
+        /// Overrides the Ingredients property to get and return the ingredients for this class.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Chicken");
+                ingredients.Add("Wing Sauce");
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -26,8 +43,6 @@ namespace DinoDiner.Menu
         {
             Price = 7.21;
             Calories = 318;
-            ingredients.Add("Chicken");
-            ingredients.Add("Wing Sauce");
         }
     }
 }
