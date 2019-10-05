@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class that is inherited into the drinks for the price, calories, read-only ingredients, size, and ice.
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         protected List<string> ingredients = new List<string>();
 

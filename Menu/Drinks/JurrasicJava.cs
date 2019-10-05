@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the drink JurrasicJava that inherits from the Drink base class.
     /// </summary>
-    public class JurrasicJava : Drink, IMenuItem
+    public class JurrasicJava : Drink
     {
         /// <summary>
         /// A public bool property that holds if Ice is an ingredient or not. Overrides the one from the abstract class to be initially false.
@@ -79,6 +79,20 @@ namespace DinoDiner.Menu
         /// <summary>
         /// A public constructor setting the price, calories, and read-only ingredients for this class.
         /// </summary>
+        /// 
+
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+                return Size.ToString() + " Decaf Jurrasic Java";
+            }
+            else
+            {
+                return Size.ToString() + " Jurrasic Java";
+            }
+        }
+
         public JurrasicJava()
         {
             Price = .59;

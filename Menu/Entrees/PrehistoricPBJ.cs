@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace DinoDiner.Menu
 {
-    public class PrehistoricPBJ : Entree, IMenuItem
+    public class PrehistoricPBJ : Entree
     {
         private bool peanutButter = true;
         private bool jelly = true;

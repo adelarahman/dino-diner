@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the drink SodaSaurus that inherits from the Drink base class.
     /// </summary>
-    public class Sodasaurus : Drink, IMenuItem
+    public class Sodasaurus : Drink
     {
         /// <summary>
         /// A private flavor calling the SodasaurusFlavor enum.
@@ -54,6 +54,11 @@ namespace DinoDiner.Menu
                     Calories = 208;
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            return Size.ToString() + Flavor.ToString() + " Sodasaurus";
         }
 
         /// <summary>

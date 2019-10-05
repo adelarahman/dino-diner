@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the side MeteorMacandCheese that inherits from the Side base class.
     /// </summary>
-    public class MeteorMacAndCheese : Side, IMenuItem
+    public class MeteorMacAndCheese : Side
     {
         /// <summary>
         /// The private size of the side for this class.

@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The class for the T-Rex King Burger menu item that establishes the price, calories, and ingredients that are decided upon by the customer. 
     /// </summary>
-    public class TRexKingBurger : Entree, IMenuItem
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// A private bool that holds if bun is an ingredient or not. Decided by the customer.

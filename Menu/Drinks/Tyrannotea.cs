@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the drink Tyrannotea that inherits from the Drink base class.
     /// </summary>
-    public class Tyrannotea : Drink, IMenuItem
+    public class Tyrannotea : Drink
     {
         /// <summary>
         /// A public bool property that holds if the drink will be sweet. Is initially false.
@@ -61,6 +61,18 @@ namespace DinoDiner.Menu
                     Price = 1.99 * temporary;
                     Calories = 32 * temporary;
                 }
+            }
+        }
+
+        public override string ToString()
+        {
+            if (Sweet)
+            {
+                return Size.ToString() + " Sweet Tyrannotea";
+            }
+            else
+            {
+                return Size.ToString() + " Tyrranotea";
             }
         }
 

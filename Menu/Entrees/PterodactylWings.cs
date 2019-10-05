@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The class for the Pterodactyl Wings menu item that establishes the price, calories, and ingredients. 
     /// </summary>
-    public class PterodactylWings : Entree, IMenuItem
+    public class PterodactylWings : Entree
     {
 
         public override string ToString()
