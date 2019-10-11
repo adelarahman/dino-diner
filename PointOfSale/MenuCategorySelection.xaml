@@ -9,7 +9,7 @@
       Title="MenuCategorySelection">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -17,7 +17,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top">Add To Order</TextBox>
+        <Label Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" FontSize="13" VerticalAlignment="Top">Add To Order</Label>
         <Button Click="SelectCombo" Margin="30" Grid.Column="0" Grid.Row="1">Combos</Button>
         <Button Click="SelectEntrees" Margin="30" Grid.Column="1" Grid.Row="1">Entrees</Button>
         <Button Click="SelectSides" Margin="30" Grid.Column="0" Grid.Row="2">Sides</Button>
