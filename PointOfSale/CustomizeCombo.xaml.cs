@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  CustomizeComboSelection.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +24,29 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
+        /// <summary>
+        /// Intiializes this xaml page.
+        /// </summary>
         public CustomizeCombo()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// A click on sides takes you to the SideSelection xaml page.
+        /// </summary>
+        /// <param name="sender">object type.</param>
+        /// <param name="args">RoutedEventArgs type.</param>
         void SelectSides(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new SideSelection());
         }
+
+        /// <summary>
+        /// A click on drink takes you to the DrinkSelection xaml page.
+        /// </summary>
+        /// <param name="sender">object type.</param>
+        /// <param name="args">RoutedEventArgs type.</param>
         void SelectDrink(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new DrinkSelection());

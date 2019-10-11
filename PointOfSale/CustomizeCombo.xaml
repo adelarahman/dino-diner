@@ -24,10 +24,10 @@
         <Label Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">Side</Label>
         <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">Drink</Label>
         <Button Click="SelectSides" Margin="30,40,30,30" Grid.Column="0" Grid.Row="2">Fryceritops</Button>
-        <Button Click="SelectDrink" Margin="30,40,30,30" Grid.Column="1" Grid.Row="2">Entrees</Button>
+        <Button Click="SelectDrink" Margin="30,40,30,30" Grid.Column="1" Grid.Row="2">Sodasaurus</Button>
         <Label Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top">Size</Label>
-        <RadioButton GroupName="Sizes" Grid.ColumnSpan="2" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4">Small</RadioButton>
-        <RadioButton GroupName="Sizes" Grid.ColumnSpan="2" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="4">Medium</RadioButton>
-        <RadioButton GroupName="Sizes" Grid.ColumnSpan="2" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="4">Large</RadioButton>
+        <RadioButton GroupName="Sizes" Grid.ColumnSpan="2" Margin="30, 20,30,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4" Height="50"  Width="150" Style="{StaticResource {x:Type ToggleButton}}">Small</RadioButton>
+        <RadioButton GroupName="Sizes" Grid.ColumnSpan="2" Margin="30,20,30,0" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="4" Height="50" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Medium</RadioButton>
+        <RadioButton GroupName="Sizes" Grid.ColumnSpan="2" Margin="30,20,30,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="4" Height="50" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Large</RadioButton>
     </Grid>
 </Page>

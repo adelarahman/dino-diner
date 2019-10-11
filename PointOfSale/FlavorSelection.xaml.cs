@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  FlavorSelection.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +24,9 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        /// <summary>
+        /// Intiializes this xaml page.
+        /// </summary>
         public FlavorSelection()
         {
             InitializeComponent();

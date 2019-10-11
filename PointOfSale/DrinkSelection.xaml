@@ -19,31 +19,50 @@
         </Grid.ColumnDefinitions>
         <Grid.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="130"/>
-                <Setter Property="Height" Value="50"/>
-                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="68"/>
+                <Setter Property="Margin" Value="5"/>
             </Style>
         </Grid.Resources>
         <Label Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" FontSize="13" VerticalAlignment="Top">Add To Order</Label>
         <StackPanel Grid.Row="1" Grid.Column="0">
-            <Label Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,15">Side</Label>
-            <Button HorizontalAlignment="Center">Sodasaurus</Button>
-            <Button HorizontalAlignment="Center">Tyrannotea</Button>
-            <Button HorizontalAlignment="Center">Jurassic Java</Button>
-            <Button HorizontalAlignment="Center">Water</Button>
+            <Label Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">Side</Label>
+            <Button Background="White" Click="SodaSaurusClicked">
+                <StackPanel>
+                    <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-12.png"/>
+                    <TextBlock HorizontalAlignment="Center">Sodasaurus</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Background="White" Click="TyrannoteaClicked">
+                <StackPanel>
+                    <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-13.png"/>
+                    <TextBlock HorizontalAlignment="Center">Tyrannotea</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Background="White" Click="JurassicJavaClicked">
+                <StackPanel>
+                    <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-14.png"/>
+                    <TextBlock HorizontalAlignment="Center">Jurassic Java</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Background="White" Click="WaterClicked">
+                <StackPanel>
+                    <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-15.png"/>
+                    <TextBlock HorizontalAlignment="Center">Water</TextBlock>
+                </StackPanel>
+            </Button>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,15">Size</Label>
-            <RadioButton GroupName="Sizes" HorizontalAlignment="Left" Margin="7">Small</RadioButton>
-            <RadioButton GroupName="Sizes" HorizontalAlignment="Left" Margin="7">Medium</RadioButton>
-            <RadioButton GroupName="Sizes" HorizontalAlignment="Left" Margin="7">Large</RadioButton>
+            <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">Size</Label>
+            <RadioButton GroupName="Sizes" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Small</RadioButton>
+            <RadioButton GroupName="Sizes" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Medium</RadioButton>
+            <RadioButton GroupName="Sizes" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Large</RadioButton>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,15">Special</Label>
-            <Button HorizontalAlignment="Center">Lemon</Button>
-            <Button Click="SelectFlavor" HorizontalAlignment="Center">Flavor</Button>
-            <Button HorizontalAlignment="Center">Decaf</Button>
-            <Button HorizontalAlignment="Center">Sweet</Button>
+            <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">Special</Label>
+            <Button Click="SelectFlavor" HorizontalAlignment="Center" IsEnabled="False" Name="SweetDecafFlavor">Sweet/Decaf/Flavor</Button>
+            <Button HorizontalAlignment="Center" IsEnabled="False" Name="Lemon">Lemon</Button>
+            <Button HorizontalAlignment="Center" IsEnabled="True" Name="Ice">Hold Ice</Button>
         </StackPanel>
     </Grid>
 </Page>
