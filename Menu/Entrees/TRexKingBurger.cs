@@ -28,7 +28,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// A private bool that holds if onion is an ingredient or not. Decided by the customer.
         /// </summary>
-        private bool Onion = true;
+        private bool Onions = true;
         /// <summary>
         /// A private bool that holds if pickle is an ingredient or not. Decided by the customer.
         /// </summary>
@@ -75,6 +75,38 @@ namespace DinoDiner.Menu
                 ingredients.Add("Ketchup");
                 ingredients.Add("Mustard");
                 ingredients.Add("Mayo");
+                if (Bun == false)
+                {
+                    ingredients.Remove("Whole Wheat Bun");
+                }
+                if (Lettuce == false)
+                {
+                    ingredients.Remove("Lettuce");
+                }
+                if (Tomato == false)
+                {
+                    ingredients.Remove("Tomato");
+                }
+                if (Onions == false)
+                {
+                    ingredients.Remove("Onion");
+                }
+                if (Pickle == false)
+                {
+                    ingredients.Remove("Pickle");
+                }
+                if (Ketchup == false)
+                {
+                    ingredients.Remove("Ketchup");
+                }
+                if (Mustard == false)
+                {
+                    ingredients.Remove("Mustard");
+                }
+                if (Mayo == false)
+                {
+                    ingredients.Remove("Mayo");
+                }
                 return ingredients;
             }
         }
@@ -93,7 +125,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldBun()
         {
-            ingredients.Remove("Whole Wheat Bun");
             this.Bun = false;
         }
 
@@ -102,7 +133,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldLettuce()
         {
-            ingredients.Remove("Lettuce");
             this.Lettuce = false;
         }
 
@@ -111,7 +141,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldTomato()
         {
-            ingredients.Remove("Tomato");
             this.Tomato = false;
         }
 
@@ -120,8 +149,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldOnion()
         {
-            ingredients.Remove("Onion");
-            this.Onion = false;
+            this.Onions = false;
         }
 
         /// <summary>
@@ -129,7 +157,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPickle()
         {
-            ingredients.Remove("Pickle");
             this.Pickle = false;
         }
 
@@ -138,7 +165,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldKetchup()
         {
-            ingredients.Remove("Ketchup");
             this.Ketchup = false;
         }
 
@@ -147,7 +173,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldMustard()
         {
-            ingredients.Remove("Mustard");
             this.Mustard = false;
         }
 
@@ -156,7 +181,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldMayo()
         {
-            ingredients.Remove("Mayo");
             this.Mayo = false;
         }
     }

@@ -48,6 +48,18 @@ namespace DinoDiner.Menu
                 ingredients.Add("Ceasar Dressing");
                 ingredients.Add("Romaine Lettuce");
                 ingredients.Add("Parmesan Cheese");
+                if (Dressing == false)
+                {
+                    ingredients.Remove("Ceasar Dressing");
+                }
+                if (Lettuce == false)
+                {
+                    ingredients.Remove("Romaine Lettuce");
+                }
+                if (Cheese == false)
+                {
+                    ingredients.Remove("Parmesan Cheese");
+                }
                 return ingredients;
             }
         }

@@ -4,11 +4,22 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class PrehistoricPBJ : Entree
+    public class PrehistoricPBJ : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyname)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+        }
+
         private bool peanutButter = true;
         private bool jelly = true;
 
@@ -19,6 +30,28 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Prehistoric PB&J";
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if(!peanutButter)
+                {
+                    special.Add("Hold Peanut Butter");
+                }
+                if(!jelly)
+                {
+                    special.Add("Hold Jelly");
+                }
+                return special.ToArray();
+            }
         }
 
         /// <summary>
@@ -32,6 +65,14 @@ namespace DinoDiner.Menu
                 ingredients.Add("Bread");
                 ingredients.Add("Peanut Butter");
                 ingredients.Add("Jelly");
+                if(peanutButter == false)
+                {
+                    ingredients.Remove("Peanut Butter");
+                }
+                if (jelly == false)
+                {
+                    ingredients.Remove("Jelly");
+                }
                 return ingredients;
             }
         }
@@ -44,14 +85,16 @@ namespace DinoDiner.Menu
 
         public void HoldPeanutButter()
         {
-            ingredients.Remove("Peanut Butter");
             this.peanutButter = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldJelly()
         {
-            ingredients.Remove("Jelly");
             this.jelly = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
     }
 }

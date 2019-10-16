@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class that is inherited into the entrees for the price, calories, and read-only ingredients
     /// </summary>
-    public abstract class Entree : IMenuItem
+    public abstract class Entree : IMenuItem, IOrderItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -29,5 +29,15 @@ namespace DinoDiner.Menu
         /// Gets the ingredients list
         /// </summary>
         public abstract List<string> Ingredients { get; }
+
+        /// <summary>
+        /// Gets the description.
+        /// </summary>
+        public string Description { get; }
+
+        /// <summary>
+        /// Gets the Special.
+        /// </summary>
+        public string[] Special { get; }
     }
 }

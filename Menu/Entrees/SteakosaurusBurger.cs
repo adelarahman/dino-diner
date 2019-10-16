@@ -52,6 +52,22 @@ namespace DinoDiner.Menu
                 ingredients.Add("Pickle");
                 ingredients.Add("Ketchup");
                 ingredients.Add("Mustard");
+                if (Bun == false)
+                {
+                    ingredients.Remove("Whole Wheat Bun");
+                }
+                if (Pickle == false)
+                {
+                    ingredients.Remove("Pickle");
+                }
+                if (Ketchup == false)
+                {
+                    ingredients.Remove("Ketchup");
+                }
+                if (Mustard == false)
+                {
+                    ingredients.Remove("Mustard");
+                }
                 return ingredients;
             }
         }
@@ -70,7 +86,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldBun()
         {
-            ingredients.Remove("Whole Wheat Bun");
             this.Bun = false;
         }
 
@@ -79,7 +94,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPickle()
         {
-            ingredients.Remove("Pickle");
             this.Pickle = false;
         }
 
@@ -88,7 +102,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldKetchup()
         {
-            ingredients.Remove("Ketchup");
             this.Ketchup = false;
         }
 
@@ -97,7 +110,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldMustard()
         {
-            ingredients.Remove("Mustard");
             this.Mustard = false;
         }
     }

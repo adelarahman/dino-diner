@@ -5,20 +5,42 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo: IMenuItem
+    public class CretaceousCombo: INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyname)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+        }
+
+        private Entree entree;
         /// <summary>
         /// Gets and sets the Entree for this class.
         /// </summary>
-        public Entree Entree { get; set; }
+        public Entree Entree {
+            get { return entree; }
+            protected set
+            {
+                entree = value;
+                entree.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
+                {
+                    NotifyOfPropertyChanged(args.PropertyName);
+                };
+            }
+        }
 
         /// <summary>
         /// Private Side for this class.
         /// </summary>
-        private Side side;
+        private Side side { get; set; } = new Fryceritops();
 
         /// <summary>
         /// Gets the side for this class and sets which it is and the size.
@@ -35,7 +57,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Private Drink for this class.
         /// </summary>
-        private Drink drink;
+        private Drink drink = new Sodasaurus();
 
         /// <summary>
         /// Gets the drink for this class and sets which it is and the size.
@@ -44,8 +66,11 @@ namespace DinoDiner.Menu
             get { return drink; }
             set
             {
-                this.drink = value;
-                this.drink.Size = this.size;
+                drink = value;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
 
         }
@@ -88,6 +113,10 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 
@@ -103,6 +132,28 @@ namespace DinoDiner.Menu
                 ingredients.AddRange(Side.Ingredients);
                 ingredients.AddRange(Drink.Ingredients);
                 return ingredients;
+            }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                special.AddRange(Entree.Special);
+                special.Add(Side.Description);
+                special.AddRange(Side.Special);
+                special.Add(Drink.Description);
+                special.AddRange(Drink.Special);
+                return special.ToArray();
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
             }
         }
 
