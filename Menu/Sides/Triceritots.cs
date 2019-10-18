@@ -5,14 +5,25 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The public class for the side Triceritots that inherits from the Side base class.
     /// </summary>
-    public class Triceritots : Side
+    public class Triceritots : Side, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyname)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+        }
+
         /// <summary>
         /// The private size of the side for this class.
         /// </summary>
@@ -50,6 +61,20 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return Size.ToString() + " Triceritots";
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
         }
 
         /// <summary>

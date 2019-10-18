@@ -132,5 +132,70 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", ingredients);
             Assert.Contains<string>("Coffee", ingredients);
         }
+
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            JurrasicJava java = new JurrasicJava();
+            if(java.Decaf)
+            {
+                Assert.Equal((java.Size + " Decaf Jurassic Java"), java.Description);
+            }
+            else
+            {
+                Assert.Equal((java.Size + " Jurassic Java"), java.Description);
+            }
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.Empty(java.Special);
+        }
+
+        [Fact]
+        public void AddIceShouldAddToSpecial()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.AddIce();
+            Assert.Collection<string>(java.Special,
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                });
+        }
+
+        [Fact]
+        public void LeaverSpaceForCreamShouldAddToSpecial()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.LeaveSpaceForCream();
+            Assert.Collection<string>(java.Special,
+                item =>
+                {
+                    Assert.Equal("Leave Space For Cream", item);
+                });
+        }
+
+        [Fact]
+        public void AddIceShouldNotifySpecialChanged()
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.PropertyChanged(java, "Special", () =>
+            {
+                java.AddIce();
+            });
+        }
+
+        [Fact]
+        public void LeaveSpaceForCreamShouldNotifySpecialChanged()
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.PropertyChanged(java, "Special", () =>
+            {
+                java.LeaveSpaceForCream();
+            });
+        }
     }
 }

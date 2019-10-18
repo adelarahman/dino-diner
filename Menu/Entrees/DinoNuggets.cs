@@ -5,14 +5,25 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The class for the Dino Nuggets menu item that establishes the price, calories, and number of chicken nuggets that are decided upon by the customer. 
     /// </summary>
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyname)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+        }
+
         /// <summary>
         /// a private uint that holds the amount of nuggets in this menu item. Is six.
         /// </summary>
@@ -25,6 +36,25 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Dino-Nuggets";
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                string nuggetSpecial = NuggetCount + " Extra Nuggets";
+                if(NuggetCount > 6)
+                {
+                    special.Add(nuggetSpecial);
+                }
+                return special.ToArray();
+            }
         }
 
         /// <summary>
@@ -62,6 +92,8 @@ namespace DinoDiner.Menu
             NuggetCount = NuggetCount + 1;
             Price += 0.25;
             Calories += 59;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
     }
 }

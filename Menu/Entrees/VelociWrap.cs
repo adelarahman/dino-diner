@@ -5,14 +5,25 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The class for the Veloci Wrap menu item that establishes the price, calories, and ingredients that are decided upon by the customer. 
     /// </summary>
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyname)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+        }
+
         /// <summary>
         /// A private bool that holds if dressing is an ingredient or not. Decided by the customer.
         /// </summary>
@@ -33,6 +44,32 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Veloci-Wrap";
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Dressing)
+                {
+                    special.Add("Hold Ceasar Dressing");
+                }
+                if (!Lettuce)
+                {
+                    special.Add("Hold Romaine Lettuce");
+                }
+                if (!Cheese)
+                {
+                    special.Add("Hold Parmesan Cheese");
+                }
+                return special.ToArray();
+            }
         }
 
         /// <summary>
@@ -79,6 +116,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.Dressing = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -87,6 +126,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.Lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -95,6 +136,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.Cheese = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
     }
 }

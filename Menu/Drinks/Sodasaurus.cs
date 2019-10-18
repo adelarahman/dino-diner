@@ -13,6 +13,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Sodasaurus : Drink
     {
+
         /// <summary>
         /// A private flavor calling the SodasaurusFlavor enum.
         /// </summary>
@@ -64,6 +65,24 @@ namespace DinoDiner.Menu
         {
             return Size.ToString() + " " + Flavor.ToString() + " Sodasaurus";
 
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice)
+                {
+                    special.Add("Hold Ice");
+                }
+                return special.ToArray();
+            }
         }
 
         /// <summary>

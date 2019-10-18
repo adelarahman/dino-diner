@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -13,6 +14,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class JurrasicJava : Drink
     {
+
         /// <summary>
         /// A public bool property that holds if Ice is an ingredient or not. Overrides the one from the abstract class to be initially false.
         /// </summary>
@@ -66,6 +68,7 @@ namespace DinoDiner.Menu
         public void LeaveSpaceForCream()
         {
             RoomForCream = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -74,6 +77,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -89,6 +93,28 @@ namespace DinoDiner.Menu
             else
             {
                 return Size.ToString() + " Jurassic Java";
+            }
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice)
+                {
+                    special.Add("Add Ice");
+                }
+                if (RoomForCream)
+                {
+                    special.Add("Leave Space For Cream");
+                }
+                return special.ToArray();
             }
         }
 

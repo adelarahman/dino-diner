@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -12,8 +13,18 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class that is inherited into the drinks for the price, calories, read-only ingredients, size, and ice.
     /// </summary>
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyname)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+        }
+
         protected List<string> ingredients = new List<string>();
 
         /// <summary>
@@ -47,6 +58,7 @@ namespace DinoDiner.Menu
         public virtual void HoldIce()
         {
             Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
     }
 }

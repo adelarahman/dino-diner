@@ -60,7 +60,7 @@ namespace MenuTest.Entrees
         public void DescriptionShouldBeCorrect()
         {
             Brontowurst bw = new Brontowurst();
-            Assert.Equal("Prehistoric PB&J", bw.Description);
+            Assert.Equal("Brontowurst", bw.Description);
         }
 
         [Fact]
@@ -129,6 +129,7 @@ namespace MenuTest.Entrees
             Brontowurst bw = new Brontowurst();
             bw.HoldBun();
             bw.HoldPeppers();
+            bw.HoldOnion();
             Assert.Collection<string>(bw.Special,
                 item =>
                 {
@@ -140,7 +141,7 @@ namespace MenuTest.Entrees
                 },
                 item =>
                 {
-                    Assert.Equal("Hold Onions", item);
+                    Assert.Equal("Hold Onion", item);
                 });
         }
 
@@ -163,6 +164,15 @@ namespace MenuTest.Entrees
                 bw.HoldPeppers();
             });
         }
-    }
 
+        [Fact]
+        public void HoldOnionsShouldNotifySpecialChanged()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Special", () =>
+            {
+                bw.HoldOnion();
+            });
+        }
+    }
 }
