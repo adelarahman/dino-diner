@@ -13,13 +13,17 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class that is inherited into the drinks for the price, calories, read-only ingredients, size, and ice.
     /// </summary>
-    public abstract class Drink : IMenuItem, INotifyPropertyChanged
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// An event handler for PropertyChanged events.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Invokes a notify of new property changed.
+        /// </summary>
+        /// <param name="propertyname">type string.</param>
         protected void NotifyOfPropertyChanged(string propertyname)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
@@ -45,7 +49,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public virtual Size Size { get; set; }
+        public abstract Size Size { get; set; }
 
         /// <summary>
         /// Gets or sets the ice. Is initially true.
@@ -60,5 +64,20 @@ namespace DinoDiner.Menu
             Ice = false;
             NotifyOfPropertyChanged("Special");
         }
+
+        /// <summary>
+        /// Gets the description.
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Gets the Special.
+        /// </summary>
+        public abstract string[] Special { get; }
     }
 }

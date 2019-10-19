@@ -65,6 +65,8 @@ namespace MenuTest.Entrees
             Assert.DoesNotContain<string>("Mustard", sb.Ingredients);
         }
 
+        // The description should be correct.
+
         [Fact]
         public void DescriptionShouldBeCorrect()
         {

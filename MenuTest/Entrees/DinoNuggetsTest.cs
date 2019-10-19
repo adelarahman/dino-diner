@@ -86,6 +86,8 @@ namespace MenuTest.Entrees
             Assert.Equal<uint>(dn.Calories, 59*9);
         }
 
+        // The description should be correct.
+
         [Fact]
         public void DescriptionShouldBeCorrect()
         {
@@ -123,6 +125,26 @@ namespace MenuTest.Entrees
         {
             DinoNuggets dn = new DinoNuggets();
             Assert.PropertyChanged(dn, "Special", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void AddNuggetShouldNotifyPriceChanged()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Price", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void AddNuggetShouldNotifyCaloriesChanged()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Calories", () =>
             {
                 dn.AddNugget();
             });

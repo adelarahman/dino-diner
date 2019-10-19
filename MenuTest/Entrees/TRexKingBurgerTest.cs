@@ -13,6 +13,8 @@ namespace MenuTest.Entrees
             Assert.Equal(8.45, trex.Price, 2);
         }
 
+        // The description should be correct.
+
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
         {

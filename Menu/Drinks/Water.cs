@@ -28,7 +28,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// A public size property. The private size is equal to the value. The set switches price and calories depending on the size value. The get returns the private size.
         /// </summary>
-        public Size Size
+        public override Size Size
         {
             get { return size; }
             set
@@ -38,16 +38,19 @@ namespace DinoDiner.Menu
                 {
                     Price = 0.10;
                     Calories = 0;
+                    NotifyOfPropertyChanged("Size");
                 }
                 else if (size == Size.Medium)
                 {
                     Price = .10;
                     Calories = 0;
+                    NotifyOfPropertyChanged("Size");
                 }
                 else
                 {
                     Price = .10;
                     Calories = 0;
+                    NotifyOfPropertyChanged("Size");
                 }
             }
         }
@@ -61,12 +64,10 @@ namespace DinoDiner.Menu
             return Size.ToString() + " Water";
         }
 
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        public string[] Special
+        /// <summary>
+        /// Override the Special method to return a string array of all the specials in the class.
+        /// </summary>
+        public override string[] Special
         {
             get
             {
@@ -115,6 +116,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChanged("Special");
         }
     }
 }

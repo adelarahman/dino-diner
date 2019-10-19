@@ -47,6 +47,8 @@ namespace MenuTest.Entrees
             Assert.DoesNotContain<string>("Jelly", pbj.Ingredients);
         }
 
+        // The description should be correct.
+
         [Fact]
         public void DescriptionShouldBeCorrect()
         {

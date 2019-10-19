@@ -9,19 +9,27 @@ using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo: INotifyPropertyChanged
+    public class CretaceousCombo: IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// An event handler for PropertyChanged events.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Invokes a notify of new property changed.
+        /// </summary>
+        /// <param name="propertyname">type string.</param>
         protected void NotifyOfPropertyChanged(string propertyname)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
 
+        /// <summary>
+        /// Private Entree.
+        /// </summary>
         private Entree entree;
+
         /// <summary>
         /// Gets and sets the Entree for this class.
         /// </summary>
@@ -135,6 +143,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Override the Special method to return a string array of all the specials in the class.
+        /// </summary>
         public string[] Special
         {
             get
@@ -149,6 +160,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets the description for this class.
+        /// </summary>
         public string Description
         {
             get

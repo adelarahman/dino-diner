@@ -12,18 +12,8 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The class for the Steakosaurus Burger menu item that establishes the price, calories, and ingredients that are decided upon by the customer. 
     /// </summary>
-    public class SteakosaurusBurger : Entree, INotifyPropertyChanged
+    public class SteakosaurusBurger : Entree
     {
-        /// <summary>
-        /// An event handler for PropertyChanged events.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyname)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
-
         /// <summary>
         /// A private bool that holds if bun is an ingredient or not. Decided by the customer.
         /// </summary>
@@ -50,12 +40,10 @@ namespace DinoDiner.Menu
             return "Steakosaurus Burger";
         }
 
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        public string[] Special
+        /// <summary>
+        /// Override the Special method to return a string array of all the specials in the class.
+        /// </summary>
+        public override string[] Special
         {
             get
             {

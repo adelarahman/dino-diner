@@ -12,18 +12,8 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The class for the Pterodactyl Wings menu item that establishes the price, calories, and ingredients. 
     /// </summary>
-    public class PterodactylWings : Entree, INotifyPropertyChanged
+    public class PterodactylWings : Entree
     {
-        /// <summary>
-        /// An event handler for PropertyChanged events.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyname)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
-
         /// <summary>
         /// Overrides the ToString() method to follow the naming convention needed.
         /// </summary>
@@ -33,12 +23,10 @@ namespace DinoDiner.Menu
             return "Pterodactyl Wings";
         }
 
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        public string[] Special
+        /// <summary>
+        /// Override the Special method to return a string array of all the specials in the class.
+        /// </summary>
+        public override string[] Special
         {
             get
             {

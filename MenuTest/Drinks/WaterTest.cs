@@ -140,6 +140,8 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Lemon", water.Ingredients);
         }
 
+        // The description should be correct.
+
         [Fact]
         public void DescriptionShouldBeCorrect()
         {
@@ -155,7 +157,7 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void AddIceShouldAddToSpecial()
+        public void HoldIceShouldAddToSpecial()
         {
             Water water = new Water();
             water.HoldIce();
@@ -179,6 +181,23 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
+        public void HoldIceAndAddLemonShouldAddToSpecial()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            water.AddLemon();
+            Assert.Collection<string>(water.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                });
+        }
+
+        [Fact]
         public void AddIceShouldNotifySpecialChanged()
         {
             Water water = new Water();
@@ -195,6 +214,19 @@ namespace MenuTest.Drinks
             Assert.PropertyChanged(water, "Special", () =>
             {
                 water.AddLemon();
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifySizeChanged(Size size)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Size", () =>
+            {
+                water.Size = size;
             });
         }
     }

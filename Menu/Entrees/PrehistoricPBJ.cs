@@ -8,18 +8,8 @@ using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class PrehistoricPBJ : Entree, INotifyPropertyChanged
+    public class PrehistoricPBJ : Entree
     {
-        /// <summary>
-        /// An event handler for PropertyChanged events.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyname)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
-
         private bool peanutButter = true;
         private bool jelly = true;
 
@@ -32,12 +22,10 @@ namespace DinoDiner.Menu
             return "Prehistoric PB&J";
         }
 
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        public string[] Special
+        /// <summary>
+        /// Override the Special method to return a string array of all the specials in the class.
+        /// </summary>
+        public override string[] Special
         {
             get
             {

@@ -12,18 +12,8 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the side Triceritots that inherits from the Side base class.
     /// </summary>
-    public class Triceritots : Side, INotifyPropertyChanged
+    public class Triceritots : Side
     {
-        /// <summary>
-        /// An event handler for PropertyChanged events.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyname)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
-
         /// <summary>
         /// The private size of the side for this class.
         /// </summary>
@@ -40,14 +30,23 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.99;
                         Calories = 352;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Size");
                         break;
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 410;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Size");
                         break;
                     case Size.Large:
                         Price = 1.95;
                         Calories = 590;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Size");
                         break;
                 }
             }
@@ -63,12 +62,10 @@ namespace DinoDiner.Menu
             return Size.ToString() + " Triceritots";
         }
 
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        public string[] Special
+        /// <summary>
+        /// Override the Special method to return a string array of all the specials in the class.
+        /// </summary>
+        public override string[] Special
         {
             get
             {

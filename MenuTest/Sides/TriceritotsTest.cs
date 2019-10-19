@@ -84,11 +84,13 @@ namespace MenuTest.Sides
             Assert.Equal<Size>(Size.Large, tt.Size);
         }
 
+        // The description should be correct.
+
         [Fact]
         public void DescriptionShouldBeCorrect()
         {
             Triceritots tt = new Triceritots();
-            Assert.Equal((tt.Size + " Triceritots"), tt.Description);
+            Assert.Equal((tt.Size.ToString() + " Triceritots"), tt.Description);
         }
 
         [Fact]
@@ -96,6 +98,45 @@ namespace MenuTest.Sides
         {
             Triceritots tt = new Triceritots();
             Assert.Empty(tt.Special);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifyPriceChanged(Size size)
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifyCaloriesChanged(Size size)
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Calories", () =>
+            {
+                tt.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifySizeChanged(Size size)
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Size", () =>
+            {
+                tt.Size = size;
+            });
         }
     }
 }

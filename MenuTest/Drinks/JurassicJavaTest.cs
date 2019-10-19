@@ -133,18 +133,15 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Coffee", ingredients);
         }
 
+        // The description should be correct.
+
         [Fact]
         public void DescriptionShouldBeCorrect()
         {
             JurrasicJava java = new JurrasicJava();
-            if(java.Decaf)
-            {
-                Assert.Equal((java.Size + " Decaf Jurassic Java"), java.Description);
-            }
-            else
-            {
-                Assert.Equal((java.Size + " Jurassic Java"), java.Description);
-            }
+            Assert.Equal((java.Size.ToString() + " Jurassic Java"), java.Description);
+            java.Decaf = true;
+            Assert.Equal((java.Size.ToString() + " Decaf Jurassic Java"), java.Description);
         }
 
         [Fact]
@@ -167,11 +164,28 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void LeaverSpaceForCreamShouldAddToSpecial()
+        public void LeaveSpaceForCreamShouldAddToSpecial()
         {
             JurrasicJava java = new JurrasicJava();
             java.LeaveSpaceForCream();
             Assert.Collection<string>(java.Special,
+                item =>
+                {
+                    Assert.Equal("Leave Space For Cream", item);
+                });
+        }
+
+        [Fact]
+        public void AddIceAndLeaveRoomForCreamShouldAddToSpecial()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.AddIce();
+            java.LeaveSpaceForCream();
+            Assert.Collection<string>(java.Special,
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                },
                 item =>
                 {
                     Assert.Equal("Leave Space For Cream", item);
@@ -195,6 +209,45 @@ namespace MenuTest.Drinks
             Assert.PropertyChanged(java, "Special", () =>
             {
                 java.LeaveSpaceForCream();
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifyPriceChanged(Size size)
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.PropertyChanged(java, "Price", () =>
+            {
+                java.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifyCaloriesChanged(Size size)
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.PropertyChanged(java, "Calories", () =>
+            {
+                java.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifySizeChanged(Size size)
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.PropertyChanged(java, "Size", () =>
+            {
+                java.Size = size;
             });
         }
     }

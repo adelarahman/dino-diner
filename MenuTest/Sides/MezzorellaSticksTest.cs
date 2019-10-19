@@ -84,11 +84,13 @@ namespace MenuTest.Sides
             Assert.Equal<Size>(Size.Large, ms.Size);
         }
 
+        // The description should be correct.
+
         [Fact]
         public void DescriptionShouldBeCorrect()
         {
             MezzorellaSticks ms = new MezzorellaSticks();
-            Assert.Equal((ms.Size + " Mezzorella Sticks"), ms.Description);
+            Assert.Equal((ms.Size.ToString() + " Mezzorella Sticks"), ms.Description);
         }
 
         [Fact]
@@ -96,6 +98,45 @@ namespace MenuTest.Sides
         {
             MezzorellaSticks ms = new MezzorellaSticks();
             Assert.Empty(ms.Special);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifyPriceChanged(Size size)
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifyCaloriesChanged(Size size)
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Calories", () =>
+            {
+                ms.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeShouldNotifySizeChanged(Size size)
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Size", () =>
+            {
+                ms.Size = size;
+            });
         }
     }
 }

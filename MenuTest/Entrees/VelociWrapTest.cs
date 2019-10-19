@@ -57,6 +57,8 @@ namespace MenuTest.Entrees
             Assert.DoesNotContain<string>("Parmesan Cheese", vw.Ingredients);
         }
 
+        // The description should be correct.
+
         [Fact]
         public void DescriptionShouldBeCorrect()
         {

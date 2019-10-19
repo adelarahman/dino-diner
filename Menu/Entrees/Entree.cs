@@ -5,14 +5,29 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Abstract class that is inherited into the entrees for the price, calories, and read-only ingredients
     /// </summary>
-    public abstract class Entree : IMenuItem, IOrderItem
+    public abstract class Entree : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Invokes a notify of new property changed.
+        /// </summary>
+        /// <param name="propertyname">type string.</param>
+        protected void NotifyOfPropertyChanged(string propertyname)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+        }
+
         /// <summary>
         /// Gets and sets the price
         /// </summary>
@@ -33,11 +48,17 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets the description.
         /// </summary>
-        public string Description { get; }
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
 
         /// <summary>
         /// Gets the Special.
         /// </summary>
-        public string[] Special { get; }
+        public abstract string[] Special { get; }
     }
 }

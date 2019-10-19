@@ -12,18 +12,8 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The public class for the side Fryceritops that inherits from the Side base class.
     /// </summary>
-    public class Fryceritops : Side, INotifyPropertyChanged
+    public class Fryceritops : Side
     {
-        /// <summary>
-        /// An event handler for PropertyChanged events.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyname)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
-
         /// <summary>
         /// The private size of the side for this class.
         /// </summary>
@@ -32,7 +22,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// A public override for size. The size is equal to the value. The set switches price and calories depending on the size value. The get returns the size.
         /// </summary>
-        public Size Size
+        public override Size Size
         {
             set
             {
@@ -42,14 +32,23 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.99;
                         Calories = 222;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Size");
                         break;
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 365;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Size");
                         break;
                     case Size.Large:
                         Price = 1.95;
                         Calories = 480;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Size");
                         break;
                 }
             }
@@ -65,12 +64,10 @@ namespace DinoDiner.Menu
             return Size.ToString() + " Fryceritops";
         }
 
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        public string[] Special
+        /// <summary>
+        /// Override the Special method to return a string array of all the specials in the class.
+        /// </summary>
+        public override string[] Special
         {
             get
             {

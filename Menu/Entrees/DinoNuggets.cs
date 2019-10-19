@@ -12,18 +12,8 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The class for the Dino Nuggets menu item that establishes the price, calories, and number of chicken nuggets that are decided upon by the customer. 
     /// </summary>
-    public class DinoNuggets : Entree, INotifyPropertyChanged
+    public class DinoNuggets : Entree
     {
-        /// <summary>
-        /// An event handler for PropertyChanged events.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyname)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
-
         /// <summary>
         /// a private uint that holds the amount of nuggets in this menu item. Is six.
         /// </summary>
@@ -38,12 +28,10 @@ namespace DinoDiner.Menu
             return "Dino-Nuggets";
         }
 
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        public string[] Special
+        /// <summary>
+        /// Override the Special method to return a string array of all the specials in the class.
+        /// </summary>
+        public override string[] Special
         {
             get
             {
@@ -55,12 +43,7 @@ namespace DinoDiner.Menu
                 }
                 return special.ToArray();
             }
-        }
-
-        /// <summary>
-        /// This public method sets the Dino nuggets price, calories, and ingredients to the ones given.
-        /// </summary>
-        /// 
+        } 
 
         /// <summary>
         /// Overrides the Ingredients property to get and return the ingredients for this class.
@@ -78,6 +61,10 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// This public method sets the Dino nuggets price and calories to the ones given.
+        /// </summary>
+        ///
         public DinoNuggets()
         {
             Price = 4.25;
@@ -94,6 +81,8 @@ namespace DinoDiner.Menu
             Calories += 59;
             NotifyOfPropertyChanged("Ingredients");
             NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories");
         }
     }
 }
