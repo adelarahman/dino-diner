@@ -75,6 +75,7 @@ namespace DinoDiner.Menu
                 return this.ToString();
             }
         }
+
         /// <summary>
         /// Gets the Special.
         /// </summary>
