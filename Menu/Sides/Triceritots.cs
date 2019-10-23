@@ -33,6 +33,7 @@ namespace DinoDiner.Menu
                         NotifyOfPropertyChanged("Price");
                         NotifyOfPropertyChanged("Calories");
                         NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Medium:
                         Price = 1.45;
@@ -40,6 +41,7 @@ namespace DinoDiner.Menu
                         NotifyOfPropertyChanged("Price");
                         NotifyOfPropertyChanged("Calories");
                         NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Large:
                         Price = 1.95;
@@ -47,6 +49,7 @@ namespace DinoDiner.Menu
                         NotifyOfPropertyChanged("Price");
                         NotifyOfPropertyChanged("Calories");
                         NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Description");
                         break;
                 }
             }

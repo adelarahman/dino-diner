@@ -71,6 +71,16 @@ namespace MenuTest
             Assert.Equal<double>(10, order.SubtotalCost);
         }
 
+        [Fact]
+        public void ShouldNotifyTotalPriceChanged()
+        {
+            Order order = new Order();
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.SubtotalCost = totalcost;
+            });
+        }
+
 
     }
 }

@@ -26,25 +26,25 @@
         <Label Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" FontSize="13" VerticalAlignment="Top">Add To Order</Label>
         <StackPanel Grid.Row="1" Grid.Column="0">
             <Label Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0">Side</Label>
-            <Button Background="White">
+            <Button Background="White" Click="OnSelectFryceritops">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-08.png"/>
                     <TextBlock HorizontalAlignment="Center">Fryceritops</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Background="White">
+            <Button Background="White" Click="OnSelectMeteorMacAndCheese">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-09.png"/>
                     <TextBlock HorizontalAlignment="Center">Meteor Mac &amp; Cheese</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Background="White">
+            <Button Background="White" Click="OnSelectMezzorellaSticks">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-10.png"/>
                     <TextBlock HorizontalAlignment="Center">Mezzorella Sticks</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Background="White">
+            <Button Background="White" Click="OnSelectTriceritots">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-11.png"/>
                     <TextBlock HorizontalAlignment="Center">Triceritots</TextBlock>
@@ -53,9 +53,9 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0">Size</Label>
-            <RadioButton GroupName="Sizes" HorizontalAlignment="Center" Margin="5" Width="200" Height="70" Style="{StaticResource {x:Type ToggleButton}}">Small</RadioButton>
-            <RadioButton GroupName="Sizes" HorizontalAlignment="Center" Margin="5" Width="200" Height="70" Style="{StaticResource {x:Type ToggleButton}}">Medium</RadioButton>
-            <RadioButton GroupName="Sizes" HorizontalAlignment="Center" Margin="5" Width="200" Height="70" Style="{StaticResource {x:Type ToggleButton}}">Large</RadioButton>
+            <RadioButton GroupName="Sizes" Tag ="Small" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Width="200" Height="70" Style="{StaticResource {x:Type ToggleButton}}">Small</RadioButton>
+            <RadioButton GroupName="Sizes" Tag ="Medium" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Width="200" Height="70" Style="{StaticResource {x:Type ToggleButton}}">Medium</RadioButton>
+            <RadioButton GroupName="Sizes" Tag ="Large" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Width="200" Height="70" Style="{StaticResource {x:Type ToggleButton}}">Large</RadioButton>
         </StackPanel>
     </Grid>
 </Page>

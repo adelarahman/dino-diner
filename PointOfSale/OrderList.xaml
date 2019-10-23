@@ -19,8 +19,10 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Order #" FontWeight="Bold" TextAlignment="Center" Grid.ColumnSpan="2"/>
         <ListBox Grid.Row="1" 
+                 Name="OrderItems"
                  Grid.ColumnSpan="2" 
-                 ItemsSource="{Binding Path=Items}"
+                 ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}"
+                 IsSynchronizedWithCurrentItem="True"
                  BorderThickness="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>

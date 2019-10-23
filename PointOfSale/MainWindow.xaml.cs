@@ -24,17 +24,24 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
-            Order order = DataContext as Order;
-            if (order != null)
+        }
+
+        private void PassDataContentToPage()
+        {
+            if (MenuCategorySelection.Content is Page page)
             {
-                order.Items.Add(new PrehistoricPBJ());
-                order.Items.Add(new Sodasaurus());
-                order.Items.Add(new Fryceritops());
-                SteakosaurusBurger sb = new SteakosaurusBurger();
-                sb.HoldPickle();
-                sb.HoldBun();
-                order.Items.Add(sb);
+                page.DataContext = MenuCategorySelection.DataContext;
             }
+        }
+
+        private void OnLoadCompleted(object sender, NavigationEventArgs args)
+        {
+            PassDataContentToPage();
+        }
+
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            PassDataContentToPage();
         }
     }
 }

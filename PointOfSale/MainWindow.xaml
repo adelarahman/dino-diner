@@ -15,6 +15,10 @@
                    Width="200">
             
         </local:OrderList>
-        <Frame Source="MenuCategorySelection.xaml"></Frame>
+        <Frame Source="MenuCategorySelection.xaml" 
+               Name="MenuCategorySelection"
+               LoadCompleted = "OnLoadCompleted"
+               DataContextChanged="OnDataContextChanged"
+               />
     </DockPanel>
 </Window>
