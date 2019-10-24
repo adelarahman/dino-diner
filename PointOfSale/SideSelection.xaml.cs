@@ -45,7 +45,7 @@ namespace PointOfSale
         private Side side;
 
         /// <summary>
-        /// Intiializes this xaml page.
+        /// Initializes this xaml page.
         /// </summary>
         public SideSelection()
         {
@@ -59,7 +59,6 @@ namespace PointOfSale
                 side = new Fryceritops();
                 order.Items.Add(side);
             }
-            NotifyOfPropertyChanged("SubtotalCost");
         }
 
         private void OnSelectMeteorMacAndCheese(object sender, RoutedEventArgs args)

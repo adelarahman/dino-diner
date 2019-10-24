@@ -39,7 +39,7 @@
                     <TextBlock HorizontalAlignment="Center">Tyrannotea</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Background="White" Click="JurassicJavaClicked">
+            <Button Background="White" Click="JurrasicJavaClicked">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-14.png"/>
                     <TextBlock HorizontalAlignment="Center">Jurassic Java</TextBlock>
@@ -54,9 +54,9 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">Size</Label>
-            <RadioButton GroupName="Sizes" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Small</RadioButton>
-            <RadioButton GroupName="Sizes" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Medium</RadioButton>
-            <RadioButton GroupName="Sizes" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Large</RadioButton>
+            <RadioButton GroupName="Sizes" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Small</RadioButton>
+            <RadioButton GroupName="Sizes" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Medium</RadioButton>
+            <RadioButton GroupName="Sizes" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Large</RadioButton>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
             <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">Special</Label>

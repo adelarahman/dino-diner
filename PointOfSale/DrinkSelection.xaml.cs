@@ -16,6 +16,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
+using System.Collections.ObjectModel;
+using DDSize = DinoDiner.Menu.Size;
+using System.ComponentModel;
 
 namespace PointOfSale
 {
@@ -42,6 +46,8 @@ namespace PointOfSale
             NavigationService.Navigate(new FlavorSelection());
         }
 
+        private Drink drink;
+
         /// <summary>
         /// A click on tyrannotea enables the lemon and sweet/decaf/flavor radio buttons.
         /// </summary>
@@ -51,6 +57,11 @@ namespace PointOfSale
         {
             Lemon.IsEnabled = true;
             SweetDecafFlavor.IsEnabled = true;
+            if (DataContext is Order order)
+            {
+                drink = new Tyrannotea();
+                order.Items.Add(drink);
+            }
         }
 
         /// <summary>
@@ -62,6 +73,11 @@ namespace PointOfSale
         {
             SweetDecafFlavor.IsEnabled = true;
             Lemon.IsEnabled = false;
+            if (DataContext is Order order)
+            {
+                drink = new Sodasaurus();
+                order.Items.Add(drink);
+            }
         }
 
         /// <summary>
@@ -69,10 +85,15 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
-        void JurassicJavaClicked(object sender, RoutedEventArgs args)
+        void JurrasicJavaClicked(object sender, RoutedEventArgs args)
         {
             SweetDecafFlavor.IsEnabled = true;
             Lemon.IsEnabled = false;
+            if (DataContext is Order order)
+            {
+                drink = new JurrasicJava();
+                order.Items.Add(drink);
+            }
         }
 
         /// <summary>
@@ -84,6 +105,19 @@ namespace PointOfSale
         {
             Lemon.IsEnabled = true;
             SweetDecafFlavor.IsEnabled = false;
+            if (DataContext is Order order)
+            {
+                drink = new Water();
+                order.Items.Add(drink);
+            }
+        }
+
+        private void OnChangeSize(object sender, RoutedEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+            }
         }
     }
 }
