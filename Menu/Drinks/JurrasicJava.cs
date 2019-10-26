@@ -25,10 +25,24 @@ namespace DinoDiner.Menu
         /// </summary>
         public bool RoomForCream { get; set; } = false;
 
+        private bool decaf = false;
+
         /// <summary>
         /// A public bool property holding if the drink should be decaf. Initially false.
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get
+            {
+                return decaf;
+            }
+            set
+            {
+                decaf = value;
+                NotifyOfPropertyChanged("Decaf");
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// The private size of the side for this class.

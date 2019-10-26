@@ -18,13 +18,13 @@
                     <Setter Property="Margin" Value="10"/>
                 </Style>
             </WrapPanel.Resources>
-            <Button>Cherry</Button>
-            <Button>Chocolate</Button>
-            <Button>Cola</Button>
-            <Button>Lime</Button>
-            <Button>Orange</Button>
-            <Button>Rootbeer</Button>
-            <Button>Vanilla</Button>
+            <Button Tag="Cherry" Click="OnChangeFlavor">Cherry</Button>
+            <Button Tag="Chocolate" Click="OnChangeFlavor">Chocolate</Button>
+            <Button Tag="Cola" Click="OnChangeFlavor">Cola</Button>
+            <Button Tag="Lime" Click="OnChangeFlavor">Lime</Button>
+            <Button Tag="Orange" Click="OnChangeFlavor">Orange</Button>
+            <Button Tag="RootBeer" Click="OnChangeFlavor">Rootbeer</Button>
+            <Button Tag="Vanilla" Click="OnChangeFlavor">Vanilla</Button>
         </WrapPanel>
     </DockPanel>
 </Page>

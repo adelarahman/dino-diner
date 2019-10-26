@@ -12,7 +12,8 @@
     </Window.DataContext>
     <DockPanel>
         <local:OrderList DockPanel.Dock="Right" 
-                   Width="200">
+                   Width="200"
+                   x:Name="OrderControl">
             
         </local:OrderList>
         <Frame Source="MenuCategorySelection.xaml" 

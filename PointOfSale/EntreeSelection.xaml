@@ -17,13 +17,13 @@
                     <Setter Property="Margin" Value="10"/>
                 </Style>
             </WrapPanel.Resources>
-            <Button>BruntoWurst</Button>
-            <Button>Dino-Nuggets</Button>
-            <Button>Prehistoric PB&amp;J</Button>
-            <Button>Pterodactyl Wings</Button>
-            <Button>Steakosaurus Burger</Button>
-            <Button>T-Rex Kingburger</Button>
-            <Button>Veloci-Wrap</Button>
+            <Button Click="OnSelectBruntoWurst">BruntoWurst</Button>
+            <Button Click="OnSelectDinoNuggets">Dino-Nuggets</Button>
+            <Button Click="OnSelectPrehistoricPBJ">Prehistoric PB&amp;J</Button>
+            <Button Click="OnSelectPterodactylWings">Pterodactyl Wings</Button>
+            <Button Click="OnSelectSteakosaurusBurger">Steakosaurus Burger</Button>
+            <Button Click="OnSelectTRexKingburger">T-Rex Kingburger</Button>
+            <Button Click="OnSelectVelociWrap">Veloci-Wrap</Button>
         </WrapPanel>
     </DockPanel>
 </Page>

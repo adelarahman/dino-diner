@@ -42,6 +42,9 @@ namespace PointOfSale
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
 
+        /// <summary>
+        /// Private side for this class.
+        /// </summary>
         private Side side;
 
         /// <summary>
@@ -52,48 +55,83 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initializes this xaml page with the given side.
+        /// </summary>
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            this.side = side;
+        }
+
+        /// <summary>
+        /// A click on fryceritops adds this side to the list.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
         private void OnSelectFryceritops(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
                 side = new Fryceritops();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
+        /// <summary>
+        /// A click on meteor mac and cheese adds this side to the list.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
         private void OnSelectMeteorMacAndCheese(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
                 side = new MeteorMacAndCheese();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
+        /// <summary>
+        /// A click on mezzorella sticks adds this side to the list.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
         private void OnSelectMezzorellaSticks(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
                 side = new MezzorellaSticks();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
+        /// <summary>
+        /// A click on triceritots adds this side to the list.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
         private void OnSelectTriceritots(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
                 side = new Triceritots();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
+        /// <summary>
+        /// A click on size changes the sides size and goes back to the menu.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
         private void OnChangeSize(object sender, RoutedEventArgs args)
         {
             if(sender is FrameworkElement element)
             {
                 side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
             }
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

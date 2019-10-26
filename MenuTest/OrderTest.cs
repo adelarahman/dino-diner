@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using DinoDiner.Menu;
 using Xunit;
@@ -13,11 +14,13 @@ namespace MenuTest
     /// <summary>
     /// A mock drink class.
     /// </summary>
-    class MockDrink : IOrderItem
+    class MockDrink : IOrderItem, INotifyPropertyChanged
     {
         public double Price { get; } = 5;
         public string Description { get; set; }
         public string[] Special { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     /// <summary>
@@ -28,6 +31,8 @@ namespace MenuTest
         public double Price { get; } = -1000;
         public string Description { get; set; }
         public string[] Special { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     /// <summary>
@@ -38,6 +43,8 @@ namespace MenuTest
         public double Price { get; } = 5;
         public string Description { get; set; }
         public string[] Special { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     /// <summary>
@@ -53,7 +60,7 @@ namespace MenuTest
         {
             Order order = new Order();
             MockEntree me = new MockEntree();
-            order.Items.Add(me);
+            order.Add(me);
             Assert.Equal<double>(0, order.SubtotalCost);
         }
 
@@ -66,21 +73,9 @@ namespace MenuTest
             Order order = new Order();
             MockDrink md = new MockDrink();
             MockSide ms = new MockSide();
-            order.Items.Add(md);
-            order.Items.Add(ms);
+            order.Add(md);
+            order.Add(ms);
             Assert.Equal<double>(10, order.SubtotalCost);
         }
-
-        [Fact]
-        public void ShouldNotifyTotalPriceChanged()
-        {
-            Order order = new Order();
-            Assert.PropertyChanged(order, "Price", () =>
-            {
-                order.SubtotalCost = totalcost;
-            });
-        }
-
-
     }
 }

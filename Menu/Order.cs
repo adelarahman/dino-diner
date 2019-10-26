@@ -29,20 +29,42 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
 
-        /// <summary>
-        /// Gets and sets the items added to the order.
-        /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; } = new ObservableCollection<IOrderItem>();
+        public List<IOrderItem> items;
 
+        public IOrderItem[] Items
+        {
+            get
+            {
+                return items.ToArray();
+            }
+        }
+        /// <summary>
+        /// Creates a new Order instance.
+        /// </summary>
         public Order()
         {
-            Items.CollectionChanged += OnCollectionChanged;
+            items = new List<IOrderItem>();
+        }
+
+        public void Add(IOrderItem item)
+        {
+            item.PropertyChanged += OnCollectionChanged;
+            items.Add(item);
+            OnCollectionChanged(this, new EventArgs());
+        }
+
+        public void Remove(IOrderItem item)
+        {
+            item.PropertyChanged += OnCollectionChanged;
+            items.Remove(item);
+            OnCollectionChanged(this, new EventArgs());
         }
 
         public void OnCollectionChanged(object sender, EventArgs args) {
-            NotifyOfPropertyChanged("SubtotalCost");
-            NotifyOfPropertyChanged("TotalCost");
-            NotifyOfPropertyChanged("SalesTaxCost");
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
         }
 
         /// <summary>
@@ -64,10 +86,28 @@ namespace DinoDiner.Menu
             }
         }
 
+        double salesTaxRate = 0;
+
         /// <summary>
         /// Gets and protected sets the sale tax rate.
         /// </summary>
-        public double SalesTaxRate { get; protected set; }
+        public double SalesTaxRate {
+            get
+            {
+                return salesTaxRate;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    return;
+                }
+                salesTaxRate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxRate"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+            }
+        }
 
         /// <summary>
         /// Gets the product of the sales tax rate and the sub total cost.

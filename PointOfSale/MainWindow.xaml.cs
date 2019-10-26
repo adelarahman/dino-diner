@@ -21,11 +21,19 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes this window.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+            MenuCategorySelection.Navigate(new MenuCategorySelection());
+            OrderControl.NavigationService = MenuCategorySelection.NavigationService;
         }
 
+        /// <summary>
+        /// Passes the data content to the page.
+        /// </summary>
         private void PassDataContentToPage()
         {
             if (MenuCategorySelection.Content is Page page)
@@ -34,11 +42,21 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Passes the data content to the page on load completed.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type NavigationEventArgs.</param>
         private void OnLoadCompleted(object sender, NavigationEventArgs args)
         {
             PassDataContentToPage();
         }
 
+        /// <summary>
+        /// Passes the data content to the page on data context changed.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type DependencyPropertyChangedEventArgs.</param>
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
             PassDataContentToPage();

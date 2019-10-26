@@ -10,7 +10,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
-            <RowDefinition/>
+            <RowDefinition Height="330"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,12 +22,13 @@
             <Style TargetType="Button">
                 <Setter Property="Width" Value="150"/>
                 <Setter Property="Height" Value="68"/>
-                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Margin" Value="4"/>
             </Style>
         </Grid.Resources>
         <Label Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" FontSize="13" VerticalAlignment="Top">Add To Order</Label>
+        <Button Grid.ColumnSpan="3" Grid.Row="2" Height="20" Width="540" Background="FloralWhite" Click="Done">Done</Button>
         <StackPanel Grid.Row="1" Grid.Column="0">
-            <Label Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">Side</Label>
+            <Label Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,1,0,0">Side</Label>
             <Button Background="White" Click="SodaSaurusClicked">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-12.png"/>
@@ -53,16 +55,18 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">Size</Label>
-            <RadioButton GroupName="Sizes" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Small</RadioButton>
-            <RadioButton GroupName="Sizes" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Medium</RadioButton>
-            <RadioButton GroupName="Sizes" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Large</RadioButton>
+            <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,1,0,0">Size</Label>
+            <RadioButton GroupName="Sizes" Tag="Small" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Small</RadioButton>
+            <RadioButton GroupName="Sizes" Tag="Medium" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Medium</RadioButton>
+            <RadioButton GroupName="Sizes" Tag="Large" Click="OnChangeSize" HorizontalAlignment="Center" Margin="5" Height="68" Width="150" Style="{StaticResource {x:Type ToggleButton}}">Large</RadioButton>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">Special</Label>
-            <Button Click="SelectFlavor" HorizontalAlignment="Center" IsEnabled="False" Name="SweetDecafFlavor">Sweet/Decaf/Flavor</Button>
-            <Button HorizontalAlignment="Center" IsEnabled="False" Name="Lemon">Lemon</Button>
-            <Button HorizontalAlignment="Center" IsEnabled="True" Name="Ice">Hold Ice</Button>
+            <Label Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,1,0,0">Special</Label>
+            <Button Click="OnSweet" HorizontalAlignment="Center" Name="Sweet" Height="51">Sweet</Button>
+            <Button Click="OnDecaf" HorizontalAlignment="Center" Name="Decaf" Height="51">Decaf</Button>
+            <Button Click="SelectFlavor" HorizontalAlignment="Center" Name="Flavor" Height="51">Flavor</Button>
+            <Button Click="OnLemon" HorizontalAlignment="Center" Name="Lemon" Height="51" FontSize="11">Lemon</Button>
+            <Button Click="OnIce" HorizontalAlignment="Center" Name="Ice" Height="51">Hold/Add Ice</Button>
         </StackPanel>
     </Grid>
 </Page>

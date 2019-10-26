@@ -23,11 +23,19 @@
                  Grid.ColumnSpan="2" 
                  ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}"
                  IsSynchronizedWithCurrentItem="True"
-                 BorderThickness="0">
+                 BorderThickness="0"
+                 SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}"/>
+                    <StackPanel MinWidth="190">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="RemoveItem" Grid.Column="1" Background="Red" Foreground="White" BorderThickness="0" FontWeight="Bold">X</Button>
+                            <TextBlock Text="{Binding Path=Description}" FontSize="11"/>
+                        </Grid>
                         <ListBox ItemsSource="{Binding Path=Special}" BorderThickness="0"/>
                     </StackPanel>
                 </DataTemplate>

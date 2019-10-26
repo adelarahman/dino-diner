@@ -14,10 +14,23 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Tyrannotea : Drink
     {
+        private bool sweet = false;
         /// <summary>
         /// A public bool property that holds if the drink will be sweet. Is initially false.
         /// </summary>
-        public bool Sweet { get; set; } = false;
+        public bool Sweet
+        {
+            get
+            {
+                return sweet;
+            }
+            set
+            {
+                sweet = value;
+                NotifyOfPropertyChanged("Sweet");
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// A public bool property that holds if lemon should be added to the drink. Is initially false.
@@ -83,6 +96,7 @@ namespace DinoDiner.Menu
             if (Sweet)
             {
                 return Size.ToString() + " Sweet Tyrannotea";
+
             }
             else
             {
