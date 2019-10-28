@@ -52,6 +52,11 @@ namespace PointOfSale
             PassDataContentToPage();
         }
 
+        public void OnReturnToCategorySelection(object sender, RoutedEventArgs args)
+        {
+            MenuCategorySelection.NavigationService.Navigate(new MenuCategorySelection());
+        }
+
         /// <summary>
         /// Passes the data content to the page on data context changed.
         /// </summary>

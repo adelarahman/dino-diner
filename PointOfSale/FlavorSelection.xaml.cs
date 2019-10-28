@@ -53,7 +53,7 @@ namespace PointOfSale
             {
                 soda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
             }
-            NavigationService.Navigate(new DrinkSelection());
+            NavigationService.GoBack();
         }
     }
 }

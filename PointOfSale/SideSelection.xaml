@@ -19,7 +19,7 @@
         <Grid.Resources>
             <Style TargetType="Button">
                 <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="70"/>
+                <Setter Property="Height" Value="67"/>
                 <Setter Property="Margin" Value="5"/>
             </Style>
         </Grid.Resources>
@@ -28,25 +28,25 @@
             <Label Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0">Side</Label>
             <Button Background="White" Click="OnSelectFryceritops">
                 <StackPanel>
-                    <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-08.png"/>
+                    <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-08.png"/>
                     <TextBlock HorizontalAlignment="Center">Fryceritops</TextBlock>
                 </StackPanel>
             </Button>
             <Button Background="White" Click="OnSelectMeteorMacAndCheese">
                 <StackPanel>
-                    <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-09.png"/>
+                    <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-09.png"/>
                     <TextBlock HorizontalAlignment="Center">Meteor Mac &amp; Cheese</TextBlock>
                 </StackPanel>
             </Button>
             <Button Background="White" Click="OnSelectMezzorellaSticks">
                 <StackPanel>
-                    <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-10.png"/>
+                    <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-10.png"/>
                     <TextBlock HorizontalAlignment="Center">Mezzorella Sticks</TextBlock>
                 </StackPanel>
             </Button>
             <Button Background="White" Click="OnSelectTriceritots">
                 <StackPanel>
-                    <Image HorizontalAlignment="Center" Height="50" Source="Assets/DinoDiner-11.png"/>
+                    <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-11.png"/>
                     <TextBlock HorizontalAlignment="Center">Triceritots</TextBlock>
                 </StackPanel>
             </Button>

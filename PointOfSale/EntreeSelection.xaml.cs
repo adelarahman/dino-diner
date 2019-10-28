@@ -100,10 +100,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new PrehistoricPBJ();
-                order.Add(entree);
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizePBJ(pbj));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            //NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>
