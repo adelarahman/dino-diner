@@ -70,10 +70,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new Brontowurst();
-                order.Add(entree);
+                Brontowurst bw = new Brontowurst();
+                order.Add(bw);
+                NavigationService.Navigate(new CustomizeBrontowurst(bw));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>
@@ -85,10 +85,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new DinoNuggets();
-                order.Add(entree);
+                DinoNuggets dn = new DinoNuggets();
+                order.Add(dn);
+                NavigationService.Navigate(new CustomizeDinoNuggets(dn));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>
@@ -116,10 +116,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new PterodactylWings();
-                order.Add(entree);
+                PterodactylWings pw = new PterodactylWings();
+                order.Add(pw);
+                NavigationService.Navigate(new CustomizePterodactylWings(pw));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>
@@ -131,10 +131,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new SteakosaurusBurger();
-                order.Add(entree);
+                SteakosaurusBurger sb = new SteakosaurusBurger();
+                order.Add(sb);
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(sb));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>
@@ -146,10 +146,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new TRexKingBurger();
-                order.Add(entree);
+                TRexKingBurger trexburger = new TRexKingBurger();
+                order.Add(trexburger);
+                NavigationService.Navigate(new CustomizeTRexKingBurger(trexburger));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>
@@ -161,10 +161,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new VelociWrap();
-                order.Add(entree);
+                VelociWrap vw = new VelociWrap();
+                order.Add(vw);
+                NavigationService.Navigate(new CustomizeVelociWrap(vw));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

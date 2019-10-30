@@ -36,7 +36,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                string nuggetSpecial = NuggetCount + " Extra Nuggets";
+                string nuggetSpecial = (NuggetCount - 6) + " Extra Nuggets";
                 if(NuggetCount > 6)
                 {
                     special.Add(nuggetSpecial);
