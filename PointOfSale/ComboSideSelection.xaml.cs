@@ -26,12 +26,12 @@ namespace PointOfSale
         /// <summary>
         /// private Combo for this class.
         /// </summary>
-        private Side side;
+        private CretaceousCombo combo;
 
-        public ComboSideSelection(Side side)
+        public ComboSideSelection(CretaceousCombo combo)
         {
             InitializeComponent();
-            this.side = side;
+            this.combo = combo;
         }
 
         /// <summary>
@@ -39,9 +39,39 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">type object.</param>
         /// <param name="args">type RoutedEventArgs.</param>
-        private void OnChangeSide(object sender, RoutedEventArgs args)
+        private void OnChangeFryceritopsSide(object sender, RoutedEventArgs args)
         {
-            
+            combo.Side = new Fryceritops();
+        }
+
+        /// <summary>
+        /// Click method for changing the side of a combo.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
+        private void OnChangeMeteorMacAndCheeseSide(object sender, RoutedEventArgs args)
+        {
+            combo.Side = new MeteorMacAndCheese();
+        }
+
+        /// <summary>
+        /// Click method for changing the side of a combo.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
+        private void OnChangeMezzorellaSticksSide(object sender, RoutedEventArgs args)
+        {
+            combo.Side = new MezzorellaSticks();
+        }
+
+        /// <summary>
+        /// Click method for changing the side of a combo.
+        /// </summary>
+        /// <param name="sender">type object.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
+        private void OnChangeTriceritotsSide(object sender, RoutedEventArgs args)
+        {
+            combo.Side = new Triceritots();
         }
 
         private void OnDone(object sender, RoutedEventArgs args)

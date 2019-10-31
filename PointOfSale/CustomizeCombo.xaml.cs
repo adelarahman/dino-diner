@@ -93,20 +93,17 @@ namespace PointOfSale
         /// <param name="args">RoutedEventArgs type.</param>
         void OnChangeSide(object sender, RoutedEventArgs args)
         {
-            if (cc.Side is Fryceritops fryceritops)
-            {
-                NavigationService.Navigate(new SideSelection(fryceritops));
-            }
+            NavigationService.Navigate(new ComboSideSelection(cc));
         }
 
         /// <summary>
-        /// A click on drink takes you to the DrinkSelection xaml page.
+        /// A click on sides takes you to the SideSelection xaml page.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
-        void SelectDrink(object sender, RoutedEventArgs args)
+        void OnChangeDrink(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection());
+            NavigationService.Navigate(new ComboDrinkSelection(cc));
         }
 
         /// <summary>

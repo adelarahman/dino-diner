@@ -20,25 +20,25 @@
                     <Setter Property="Margin" Value="10"/>
                 </Style>
             </WrapPanel.Resources>
-            <Button Background="White" Tag="Fryceritops" Click="OnChangeSide">
+            <Button Background="White" Tag="Fryceritops" Click="OnChangeFryceritopsSide">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-08.png"/>
                     <TextBlock HorizontalAlignment="Center">Fryceritops</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Background="White" Tag="Meteor Mac &amp; Cheese" Click="OnChangeSide">
+            <Button Background="White" Tag="Meteor Mac &amp; Cheese" Click="OnChangeMeteorMacAndCheeseSide">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-09.png"/>
                     <TextBlock HorizontalAlignment="Center">Meteor Mac &amp; Cheese</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Background="White" Tag="Mezzorella Sticks" Click="OnChangeSide">
+            <Button Background="White" Tag="Mezzorella Sticks" Click="OnChangeMezzorellaSticksSide">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-10.png"/>
                     <TextBlock HorizontalAlignment="Center">Mezzorella Sticks</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Background="White" Tag="Triceritots" Click="OnChangeSide">
+            <Button Background="White" Tag="Triceritots" Click="OnChangeTriceritotsSide">
                 <StackPanel>
                     <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-11.png"/>
                     <TextBlock HorizontalAlignment="Center">Triceritots</TextBlock>
