@@ -186,8 +186,6 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             Entree = entree;
-            Side = new Fryceritops();
-            Drink = new Sodasaurus();
         }
     }
 }

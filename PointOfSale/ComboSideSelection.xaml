@@ -1,0 +1,49 @@
+﻿<Page x:Class="PointOfSale.ComboSideSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ComboSideSelection">
+
+    <DockPanel>
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="13">Add To Order</Label>
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="12">Customize Combo Side</Label>
+        <Button DockPanel.Dock="Bottom" Click="OnDone" FontSize="12" Margin="5" Background="GhostWhite" Height="75">Done</Button>
+        <WrapPanel>
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="175"/>
+                    <Setter Property="Height" Value="75"/>
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </WrapPanel.Resources>
+            <Button Background="White" Tag="Fryceritops" Click="OnChangeSide">
+                <StackPanel>
+                    <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-08.png"/>
+                    <TextBlock HorizontalAlignment="Center">Fryceritops</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Background="White" Tag="Meteor Mac &amp; Cheese" Click="OnChangeSide">
+                <StackPanel>
+                    <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-09.png"/>
+                    <TextBlock HorizontalAlignment="Center">Meteor Mac &amp; Cheese</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Background="White" Tag="Mezzorella Sticks" Click="OnChangeSide">
+                <StackPanel>
+                    <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-10.png"/>
+                    <TextBlock HorizontalAlignment="Center">Mezzorella Sticks</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Background="White" Tag="Triceritots" Click="OnChangeSide">
+                <StackPanel>
+                    <Image HorizontalAlignment="Center" Height="47" Source="Assets/DinoDiner-11.png"/>
+                    <TextBlock HorizontalAlignment="Center">Triceritots</TextBlock>
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+    </DockPanel>
+</Page>
