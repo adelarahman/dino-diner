@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  ComboSideSelection.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +32,10 @@ namespace PointOfSale
         /// </summary>
         private CretaceousCombo combo;
 
+        /// <summary>
+        /// Constructor for this class that takes the class that is being used as a parameter.
+        /// </summary>
+        /// <param name="combo">parameter of type CretaceousCombo.</param>
         public ComboSideSelection(CretaceousCombo combo)
         {
             InitializeComponent();
@@ -74,6 +82,11 @@ namespace PointOfSale
             combo.Side = new Triceritots();
         }
 
+        /// <summary>
+        /// Click method that takes you back to the customize combo page.
+        /// </summary>
+        /// <param name="sender">type sender.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             NavigationService.GoBack();

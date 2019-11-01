@@ -29,8 +29,14 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
 
+        /// <summary>
+        /// Private backing variable to hold the IOrderItem collection.
+        /// </summary>
         public List<IOrderItem> items;
 
+        /// <summary>
+        /// Items property refactoring.
+        /// </summary>
         public IOrderItem[] Items
         {
             get
@@ -38,6 +44,7 @@ namespace DinoDiner.Menu
                 return items.ToArray();
             }
         }
+
         /// <summary>
         /// Creates a new Order instance.
         /// </summary>
@@ -46,6 +53,10 @@ namespace DinoDiner.Menu
             items = new List<IOrderItem>();
         }
 
+        /// <summary>
+        /// Method to add an IOrderitem.
+        /// </summary>
+        /// <param name="item">parameter of type IOrderItem.</param>
         public void Add(IOrderItem item)
         {
             item.PropertyChanged += OnCollectionChanged;
@@ -53,6 +64,10 @@ namespace DinoDiner.Menu
             OnCollectionChanged(this, new EventArgs());
         }
 
+        /// <summary>
+        /// Method to remove an IOrderitem.
+        /// </summary>
+        /// <param name="item">parameter of type IOrderItem.</param>
         public void Remove(IOrderItem item)
         {
             item.PropertyChanged += OnCollectionChanged;
@@ -60,6 +75,11 @@ namespace DinoDiner.Menu
             OnCollectionChanged(this, new EventArgs());
         }
 
+        /// <summary>
+        /// The property changes that should be invoked for the following items.
+        /// </summary>
+        /// <param name="sender">parameter of type object.</param>
+        /// <param name="args">parameter of type EventArgs</param>
         public void OnCollectionChanged(object sender, EventArgs args) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
@@ -86,6 +106,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Variable for the sales tax rate.
+        /// </summary>
         double salesTaxRate = 0;
 
         /// <summary>

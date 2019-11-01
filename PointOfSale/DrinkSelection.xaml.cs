@@ -72,7 +72,7 @@ namespace PointOfSale
                 Ice.IsEnabled = true;
                 Decaf.IsEnabled = false;
             }
-            if(drink is JurrasicJava)
+            if(drink is JurassicJava)
             {
                 Sweet.IsEnabled = false;
                 Lemon.IsEnabled = false;
@@ -155,7 +155,7 @@ namespace PointOfSale
             Decaf.IsEnabled = true;
             if (DataContext is Order order)
             {
-                drink = new JurrasicJava();
+                drink = new JurassicJava();
                 order.Add(drink);
             }
         }
@@ -212,7 +212,7 @@ namespace PointOfSale
         /// <param name="args">RoutedEventArgs type.</param>
         private void OnDecaf(object sender, RoutedEventArgs args)
         {
-            if (drink is JurrasicJava jj)
+            if (drink is JurassicJava jj)
             {
                 jj.Decaf = true;
             }
@@ -267,7 +267,7 @@ namespace PointOfSale
             }
             else
             {
-                JurrasicJava jj = (JurrasicJava)drink;
+                JurassicJava jj = (JurassicJava)drink;
                 jj.AddIce();
             }
         }

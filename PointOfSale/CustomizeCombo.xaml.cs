@@ -46,7 +46,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Intiializes this xaml page.
+        /// Initializes this xaml page.
         /// </summary>
         public CustomizeCombo(CretaceousCombo cc)
         {
@@ -54,6 +54,11 @@ namespace PointOfSale
             this.cc = cc;
         }
 
+        /// <summary>
+        /// Takes you to the customize page for the entree that the combo is included in.
+        /// </summary>
+        /// <param name="Sender">type sender.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
         void OnCustomizeEntree(object Sender, RoutedEventArgs args)
         {
             if (cc.Entree is Brontowurst bw)

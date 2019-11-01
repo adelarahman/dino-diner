@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  CustomizePterodactylWings.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,14 +25,26 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizePterodactylWings : Page
     {
+        /// <summary>
+        /// private variable for this entree.
+        /// </summary>
         private PterodactylWings pw;
 
+        /// <summary>
+        /// Constructor for this class that takes the class it's referring to as a parameter.
+        /// </summary>
+        /// <param name="bw">type PterodactylWings.</param>
         public CustomizePterodactylWings(PterodactylWings pw)
         {
             InitializeComponent();
             this.pw = pw;
         }
 
+        /// <summary>
+        /// Goes back to the previous page.
+        /// </summary>
+        /// <param name="sender">type sender.</param>
+        /// <param name="args">type RoutedEventArgs.</param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             NavigationService.GoBack();

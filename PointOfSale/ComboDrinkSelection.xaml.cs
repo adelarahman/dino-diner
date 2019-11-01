@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  ComboDrinkSelection.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,13 +48,17 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Intiializes this xaml page.
+        /// Initializes this xaml page.
         /// </summary>
         public ComboDrinkSelection()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constructor for this class that takes the class that is being used as a parameter.
+        /// </summary>
+        /// <param name="combo">parameter of type CretaceousCombo.</param>
         public ComboDrinkSelection(CretaceousCombo combo)
         {
             InitializeComponent();
@@ -71,7 +79,7 @@ namespace PointOfSale
                 Ice.IsEnabled = true;
                 Decaf.IsEnabled = false;
             }
-            if (combo.Drink is JurrasicJava)
+            if (combo.Drink is JurassicJava)
             {
                 Sweet.IsEnabled = false;
                 Lemon.IsEnabled = false;
@@ -103,7 +111,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// A click on tyrannotea enables the lemon and sweet/decaf/flavor radio buttons.
+        /// A click on tyrannotea enables the lemon and sweet/decaf/flavor radio buttons and adds to combo.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
@@ -118,7 +126,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// A click on sodasaurus disables the lemon and enables sweet/decaf/flavor radio buttons.
+        /// A click on sodasaurus disables the lemon and enables sweet/decaf/flavor radio buttons and adds to combo.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
@@ -133,7 +141,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// A click on jurassic java disables the lemon and enables sweet/decaf/flavor radio buttons.
+        /// A click on jurassic java disables the lemon and enables sweet/decaf/flavor radio buttons and adds to combo.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
@@ -144,11 +152,11 @@ namespace PointOfSale
             Flavor.IsEnabled = false;
             Ice.IsEnabled = true;
             Decaf.IsEnabled = true;
-            combo.Drink = new JurrasicJava();
+            combo.Drink = new JurassicJava();
         }
 
         /// <summary>
-        /// A click on water enables the lemon and disables sweet/decaf/flavor radio buttons.
+        /// A click on water enables the lemon and disables sweet/decaf/flavor radio buttons and adds to combo.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
@@ -163,7 +171,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// A click on sweet changes the description.
+        /// A click on sweet changes the description for the combo.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
@@ -176,20 +184,20 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// A click on decaf changes the description.
+        /// A click on decaf changes the description for the combo.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
         private void OnDecaf(object sender, RoutedEventArgs args)
         {
-            if (combo.Drink is JurrasicJava jj)
+            if (combo.Drink is JurassicJava jj)
             {
                 jj.Decaf = true;
             }
         }
 
         /// <summary>
-        /// A click on done goes back to the menu category selection.
+        /// A click on done goes back to the customize combo page.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
@@ -199,7 +207,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// A click on lemon changes the special description.
+        /// A click on lemon changes the special description for the combo.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
@@ -217,7 +225,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// A click on sweet changes the special description.
+        /// A click on sweet changes the special description for the combo.
         /// </summary>
         /// <param name="sender">object type.</param>
         /// <param name="args">RoutedEventArgs type.</param>
@@ -237,7 +245,7 @@ namespace PointOfSale
             }
             else
             {
-                JurrasicJava jj = (JurrasicJava)combo.Drink;
+                JurassicJava jj = (JurassicJava)combo.Drink;
                 jj.AddIce();
             }
         }

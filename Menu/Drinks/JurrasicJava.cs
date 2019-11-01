@@ -1,4 +1,4 @@
-﻿/*  JurrasicJava.cs
+﻿/*  JurassicJava.cs
 *   Author: Adela Rahman
 */
 
@@ -10,9 +10,9 @@ using System.ComponentModel;
 namespace DinoDiner.Menu
 {
     /// <summary>
-    /// The public class for the drink JurrasicJava that inherits from the Drink base class.
+    /// The public class for the drink JurassicJava that inherits from the Drink base class.
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// A public method, named LeaveRoomForCream that sets the RoomforCream property to be true.
         /// </summary>
-        public void LeaveSpaceForCream()
+        public void LeaveRoomForCream()
         {
             RoomForCream = true;
             NotifyOfPropertyChanged("Special");
@@ -159,7 +159,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// A public constructor setting the price and calories for this class.
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             Price = .59;
             Calories = 2;

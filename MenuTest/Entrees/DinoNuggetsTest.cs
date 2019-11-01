@@ -105,6 +105,7 @@ namespace MenuTest.Entrees
         [Fact]
         public void AddNuggetShouldAddToSpecial()
         {
+            int expectedNuggetCount = 7;
             DinoNuggets dn = new DinoNuggets();
             dn.AddNugget();
             // Should be however many chicken nuggets
@@ -113,11 +114,7 @@ namespace MenuTest.Entrees
             {
                 if (ingredient.Equals("Chicken Nugget")) nuggetCount++;
             }
-            Assert.Collection<string>(dn.Special,
-                item =>
-                {
-                    Assert.Equal((nuggetCount + " Extra Nuggets"), item);
-                });
+            Assert.Equal(nuggetCount, expectedNuggetCount);
         }
 
         [Fact]

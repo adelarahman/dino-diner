@@ -27,7 +27,7 @@
             </Style>
         </Grid.Resources>
         <Label Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" FontSize="13" VerticalAlignment="Top">Add To Order</Label>
-        <Label Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Top" Grid.Row="1">Customize Combo</Label>
+        <Label Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Top" Grid.Row="1">Customize Combo Drink</Label>
         <Button Grid.ColumnSpan="3" Grid.Row="3" Height="20" Width="540" Background="GhostWhite" Click="OnDone">Done</Button>
         <StackPanel Grid.Row="2" Grid.Column="0">
             <Label Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,1,0,0">Drink</Label>

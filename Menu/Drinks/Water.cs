@@ -39,18 +39,24 @@ namespace DinoDiner.Menu
                     Price = 0.10;
                     Calories = 0;
                     NotifyOfPropertyChanged("Size");
+                    NotifyOfPropertyChanged("Description");
+                    NotifyOfPropertyChanged("Price");
                 }
                 else if (size == Size.Medium)
                 {
                     Price = .10;
                     Calories = 0;
                     NotifyOfPropertyChanged("Size");
+                    NotifyOfPropertyChanged("Description");
+                    NotifyOfPropertyChanged("Price");
                 }
                 else
                 {
                     Price = .10;
                     Calories = 0;
                     NotifyOfPropertyChanged("Size");
+                    NotifyOfPropertyChanged("Description");
+                    NotifyOfPropertyChanged("Price");
                 }
             }
         }

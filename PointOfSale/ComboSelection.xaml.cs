@@ -45,7 +45,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Intiializes this xaml page.
+        /// Initializes this xaml page.
         /// </summary>
         public ComboSelection()
         {

@@ -98,7 +98,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<object> drinks = new List<object>();
-                JurrasicJava java = new JurrasicJava();
+                JurassicJava java = new JurassicJava();
                 Sodasaurus soda = new Sodasaurus();
                 Tyrannotea tea = new Tyrannotea();
                 Water water = new Water();
