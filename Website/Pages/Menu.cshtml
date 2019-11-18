@@ -1,0 +1,22 @@
+﻿@page
+@model Website.Pages.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h1>Menu</h1>
+<h1>Combo</h1>
+
+<h2>default side</h2>
+<h2>default drink</h2>
+
+
+<h2>Entrees</h2>
+@foreach (Entree e in Model.menu.AvailableEntrees)
+{
+    <div class="menu-item-entree">
+        <p>Item Name: @e.Description</p>
+        <p>Price: @e.Price</p>
+    </div>
+}
+
