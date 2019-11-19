@@ -5,18 +5,91 @@
 }
 
 <h1>Menu</h1>
-<h1>Combo</h1>
-
-<h2>default side</h2>
-<h2>default drink</h2>
-
 
 <h2>Entrees</h2>
-@foreach (Entree e in Model.menu.AvailableEntrees)
+@foreach (Entree entree in Model.menu.AvailableEntrees)
 {
-    <div class="menu-item-entree">
-        <p>Item Name: @e.Description</p>
-        <p>Price: @e.Price</p>
+    <div class="menu-item">
+        <ul>
+            <li>@entree.Description</li>
+            <ul>
+                <li>Price: $@entree.Price</li>
+                <li>Calories: @entree.Calories</li>
+                <li>Ingredients: </li>
+                <ul>
+                    @foreach (var ingredient in entree.Ingredients)
+                    {
+                        <li>@ingredient</li>
+                    }
+                </ul>
+            </ul>
+        </ul>
     </div>
 }
 
+<h2>Sides</h2>
+@foreach (Side side in Model.menu.AvailableSides)
+{
+    <div class="menu-item">
+        <ul>
+            <li>@side.Description</li>
+            <ul>
+                <li>Price: $@side.Price</li>
+                <li>Calories: @side.Calories</li>
+                <li>Ingredients: </li>
+                <ul>
+                    @foreach (var ingredient in side.Ingredients)
+                    {
+                        <li>@ingredient</li>
+                    }
+                </ul>
+            </ul>
+        </ul>
+    </div>
+}
+
+<h2>Drinks</h2>
+@foreach (Drink drink in Model.menu.AvailableDrinks)
+{
+    <div class="menu-item">
+        <ul>
+            <li>@drink.Description</li>
+            <ul>
+                <li>Price: $@drink.Price</li>
+                <li>Calories: @drink.Calories</li>
+                <li>Ingredients: </li>
+                <ul>
+                    @foreach (var ingredient in drink.Ingredients)
+                    {
+                        <li>@ingredient</li>
+                    }
+                </ul>
+            </ul>
+        </ul>
+    </div>
+}
+
+<div class="combo-header">
+    <h2>Combo</h2>
+    <h4>Default Side: Fryceritops</h4>
+    <h4>Default Drink: Sodasaurus</h4>
+</div>
+@foreach (CretaceousCombo combo in Model.menu.AvailableCombos)
+{
+    <div class="menu-item">
+        <ul>
+            <li>@combo.Description</li>
+            <ul>
+                <li>Price: $@combo.Price</li>
+                <li>Calories: @combo.Calories</li>
+                <li>Ingredients: </li>
+                <ul>
+                    @foreach (var ingredient in combo.Ingredients)
+                    {
+                        <li>@ingredient</li>
+                    }
+                </ul>
+            </ul>
+        </ul>
+    </div>
+}

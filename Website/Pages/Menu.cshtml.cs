@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  Menu.cshtml.cs
+*   Author: Adela Rahman
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,11 +15,10 @@ namespace Website.Pages
     public class MenuModel : PageModel
     {
         public Menu menu = new Menu();
-        public List<object> menuItems;
 
         public void OnGet()
         {
-            menuItems = menu.AvailableMenuItems;
+
         }
     }
 }
