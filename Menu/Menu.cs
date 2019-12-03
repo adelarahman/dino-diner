@@ -13,14 +13,15 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Menu
     {
+
         /// <summary>
         /// Gets a list containing one instance of every menu item currently offered by DinoDiner.
         /// </summary>
-        public List<object> AvailableMenuItems
+        public List<IMenuItem> AvailableMenuItems
         {
             get 
             {
-                List<object> menu = new List<object>();
+                List<IMenuItem> menu = new List<IMenuItem>();
                 menu.AddRange(AvailableEntrees);
                 menu.AddRange(AvailableSides);
                 menu.AddRange(AvailableDrinks);
@@ -44,14 +45,79 @@ namespace DinoDiner.Menu
             return sb.ToString();
         }
 
-        /// <summary>
-        /// Gets each instance of all the available entrees, adds each to the list.
-        /// </summary>
-        public List<object> AvailableEntrees
+        public static List<IMenuItem> Search(List<IMenuItem> menuItems, string searchString)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach (IMenuItem item in menuItems)
+            {
+                if(item.ToString().Contains(searchString))
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+        public static List<IMenuItem> FilterIngredients(List<IMenuItem> menuItems, List<string> ingredients)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+            foreach (IMenuItem item in menuItems)
+            {
+                bool toAdd = true;
+                foreach(string ingredient in ingredients)
+                {
+                    if(item.Ingredients.Contains(ingredient))
+                    {
+                        toAdd = false;
+                    }
+                }
+
+                if(toAdd == true)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+        public static List<IMenuItem> FilterMinPrice(List<IMenuItem> menuItems, double price)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+            foreach (IMenuItem item in menuItems)
+            {
+                if (item.Price >= price)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+        public List<string> allIngredients
         {
             get
             {
-                List<object> entrees = new List<object>();
+                HashSet<string> ingredients = new HashSet<string>();
+                foreach (IMenuItem menu in AvailableMenuItems)
+                {
+                    foreach (string ingredient in menu.Ingredients)
+                    {
+                        ingredients.Add(ingredient);
+                    }
+                }
+                return new List<string>(ingredients);
+            }
+        }
+
+        /// <summary>
+        /// Gets each instance of all the available entrees, adds each to the list.
+        /// </summary>
+        public List<IMenuItem> AvailableEntrees
+        {
+            get
+            {
+                List<IMenuItem> entrees = new List<IMenuItem>();
                 Brontowurst brontowurst = new Brontowurst();
                 DinoNuggets dinonuggets = new DinoNuggets();
                 PrehistoricPBJ pb = new PrehistoricPBJ();
@@ -73,11 +139,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets each instance of all the available sides, adds each to the list.
         /// </summary>
-        public List<object> AvailableSides
+        public List<IMenuItem> AvailableSides
         {
             get
             {
-                List<object> sides = new List<object>();
+                List<IMenuItem> sides = new List<IMenuItem>();
                 Fryceritops fryceritops = new Fryceritops();
                 MeteorMacAndCheese macandcheese = new MeteorMacAndCheese();
                 MezzorellaSticks mezzorellasticks = new MezzorellaSticks();
@@ -93,11 +159,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets each instance of all the available drinks, adds each to the list.
         /// </summary>
-        public List<object> AvailableDrinks
+        public List<IMenuItem> AvailableDrinks
         {
             get
             {
-                List<object> drinks = new List<object>();
+                List<IMenuItem> drinks = new List<IMenuItem>();
                 JurassicJava java = new JurassicJava();
                 Sodasaurus soda = new Sodasaurus();
                 Tyrannotea tea = new Tyrannotea();
@@ -113,11 +179,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets each instance of all the available combos, adds each to the list.
         /// </summary>
-        public List<object> AvailableCombos
+        public List<IMenuItem> AvailableCombos
         {
             get
             {
-                List<object> combos = new List<object>();
+                List<IMenuItem> combos = new List<IMenuItem>();
                 Brontowurst brontowurst = new Brontowurst();
                 DinoNuggets dinonuggets = new DinoNuggets();
                 PrehistoricPBJ pb = new PrehistoricPBJ();

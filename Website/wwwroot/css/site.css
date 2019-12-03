@@ -39,3 +39,16 @@ img {
     width: 50%
 }
 
+form {
+    width: 300px;
+    background-color: lightgray;
+    flex-grow: 0;
+    padding: 50px;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+

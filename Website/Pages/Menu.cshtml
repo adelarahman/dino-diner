@@ -4,92 +4,109 @@
     ViewData["Title"] = "Menu";
 }
 
-<h1>Menu</h1>
+<div id="container">
+    <div>
+        <h1>Menu</h1>
 
-<h2>Entrees</h2>
-@foreach (Entree entree in Model.menu.AvailableEntrees)
-{
-    <div class="menu-item">
-        <ul>
-            <li>@entree.Description</li>
-            <ul>
-                <li>Price: $@entree.Price</li>
-                <li>Calories: @entree.Calories</li>
-                <li>Ingredients: </li>
+        <h2>Entrees</h2>
+        @foreach (Entree entree in Model.menuEntreeItems)
+        {
+            <div class="menu-item">
                 <ul>
-                    @foreach (var ingredient in entree.Ingredients)
-                    {
-                        <li>@ingredient</li>
-                    }
+                    <li>@entree.Description</li>
+                    <ul>
+                        <li>Price: $@entree.Price</li>
+                        <li>Calories: @entree.Calories</li>
+                        <li>Ingredients: </li>
+                        <ul>
+                            @foreach (var ingredient in entree.Ingredients)
+                            {
+                                <li>@ingredient</li>
+                            }
+                        </ul>
+                    </ul>
                 </ul>
-            </ul>
-        </ul>
-    </div>
-}
+            </div>
+        }
 
-<h2>Sides</h2>
-@foreach (Side side in Model.menu.AvailableSides)
-{
-    <div class="menu-item">
-        <ul>
-            <li>@side.Description</li>
-            <ul>
-                <li>Price: $@side.Price</li>
-                <li>Calories: @side.Calories</li>
-                <li>Ingredients: </li>
+        <h2>Sides</h2>
+        @foreach (Side side in Model.menuSideItems)
+        {
+            <div class="menu-item">
                 <ul>
-                    @foreach (var ingredient in side.Ingredients)
-                    {
-                        <li>@ingredient</li>
-                    }
+                    <li>@side.Description</li>
+                    <ul>
+                        <li>Price: $@side.Price</li>
+                        <li>Calories: @side.Calories</li>
+                        <li>Ingredients: </li>
+                        <ul>
+                            @foreach (var ingredient in side.Ingredients)
+                            {
+                                <li>@ingredient</li>
+                            }
+                        </ul>
+                    </ul>
                 </ul>
-            </ul>
-        </ul>
-    </div>
-}
+            </div>
+        }
 
-<h2>Drinks</h2>
-@foreach (Drink drink in Model.menu.AvailableDrinks)
-{
-    <div class="menu-item">
-        <ul>
-            <li>@drink.Description</li>
-            <ul>
-                <li>Price: $@drink.Price</li>
-                <li>Calories: @drink.Calories</li>
-                <li>Ingredients: </li>
+        <h2>Drinks</h2>
+        @foreach (Drink drink in Model.menuDrinkItems)
+        {
+            <div class="menu-item">
                 <ul>
-                    @foreach (var ingredient in drink.Ingredients)
-                    {
-                        <li>@ingredient</li>
-                    }
+                    <li>@drink.Description</li>
+                    <ul>
+                        <li>Price: $@drink.Price</li>
+                        <li>Calories: @drink.Calories</li>
+                        <li>Ingredients: </li>
+                        <ul>
+                            @foreach (var ingredient in drink.Ingredients)
+                            {
+                                <li>@ingredient</li>
+                            }
+                        </ul>
+                    </ul>
                 </ul>
-            </ul>
-        </ul>
-    </div>
-}
+            </div>
+        }
 
-<div class="combo-header">
-    <h2>Combo</h2>
-    <h4>Default Side: Fryceritops</h4>
-    <h4>Default Drink: Sodasaurus</h4>
+        <div class="combo-header">
+            <h2>Combo</h2>
+            <h4>Default Side: Fryceritops</h4>
+            <h4>Default Drink: Sodasaurus</h4>
+        </div>
+        @foreach (CretaceousCombo combo in Model.menuComboItems)
+        {
+            <div class="menu-item">
+                <ul>
+                    <li>@combo.Description</li>
+                    <ul>
+                        <li>Price: $@combo.Price</li>
+                        <li>Calories: @combo.Calories</li>
+                        <li>Ingredients: </li>
+                        <ul>
+                            @foreach (var ingredient in combo.Ingredients)
+                            {
+                                <li>@ingredient</li>
+                            }
+                        </ul>
+                    </ul>
+                </ul>
+            </div>
+        }
+    </div>
+    <form method="post">
+        <input type="text" name="search" id="search" value="@Model.search" />
+        <input type="submit" value="Search and Filter" />
+
+        <label>
+            Min Price
+            <input type="number" name="minPrice" value="@Model.minPrice" />
+        </label>
+
+    </form>
 </div>
-@foreach (CretaceousCombo combo in Model.menu.AvailableCombos)
-{
-    <div class="menu-item">
-        <ul>
-            <li>@combo.Description</li>
-            <ul>
-                <li>Price: $@combo.Price</li>
-                <li>Calories: @combo.Calories</li>
-                <li>Ingredients: </li>
-                <ul>
-                    @foreach (var ingredient in combo.Ingredients)
-                    {
-                        <li>@ingredient</li>
-                    }
-                </ul>
-            </ul>
-        </ul>
-    </div>
-}
+
+
+
