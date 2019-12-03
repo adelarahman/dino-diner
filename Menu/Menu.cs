@@ -13,6 +13,24 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Menu
     {
+        /// <summary>
+        /// The list of unique ingredients from all menu items.
+        /// </summary>
+        public List<string> allIngredients
+        {
+            get
+            {
+                HashSet<string> ingredients = new HashSet<string>();
+                foreach (IMenuItem menu in AvailableMenuItems)
+                {
+                    foreach (string ingredient in menu.Ingredients)
+                    {
+                        ingredients.Add(ingredient);
+                    }
+                }
+                return new List<string>(ingredients);
+            }
+        }
 
         /// <summary>
         /// Gets a list containing one instance of every menu item currently offered by DinoDiner.
@@ -94,20 +112,27 @@ namespace DinoDiner.Menu
             return result;
         }
 
-        public List<string> allIngredients
+        public static List<IMenuItem> FilterMaxPrice(List<IMenuItem> menuItems, double price)
         {
-            get
+            List<IMenuItem> result = new List<IMenuItem>();
+            foreach (IMenuItem item in menuItems)
             {
-                HashSet<string> ingredients = new HashSet<string>();
-                foreach (IMenuItem menu in AvailableMenuItems)
+                if (item.Price <= price)
                 {
-                    foreach (string ingredient in menu.Ingredients)
-                    {
-                        ingredients.Add(ingredient);
-                    }
+                    result.Add(item);
                 }
-                return new List<string>(ingredients);
             }
+            return result;
+        }
+
+        public static List<IMenuItem> FilterMenuCategory(List<IMenuItem> menuItems, IMenuItem type)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+            foreach (IMenuItem item in menuItems)
+            {
+
+            }
+            return result;
         }
 
         /// <summary>

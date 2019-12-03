@@ -100,9 +100,34 @@
         <input type="text" name="search" id="search" value="@Model.search" />
         <input type="submit" value="Search and Filter" />
 
+        <h4>Menu Category</h4>
+        <div class="checkbox-list">
+            <label>
+                <input type="checkbox" name="menuCategory" value="Combo" />
+                Combo
+            </label>
+            <label>
+                <input type="checkbox" name="menuCategory" value="Entree" />
+                Entree
+            </label>
+            <label>
+                <input type="checkbox" name="menuCategory" value="Side" />
+                Side
+            </label>
+            <label>
+                <input type="checkbox" name="menuCategory" value="Drink" />
+                Drink
+            </label>
+        </div>
+
         <label>
             Min Price
-            <input type="number" name="minPrice" value="@Model.minPrice" />
+            <input type="number" id="minimum-price" name="minimumPrice" value="@Model.minPrice" />
+        </label>
+
+        <label>
+            Max Price
+            <input type="number" id="maximum-price" name="maximumPrice" value="@Model.maxPrice" />
         </label>
 
     </form>

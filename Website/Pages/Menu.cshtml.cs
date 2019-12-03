@@ -17,8 +17,11 @@ namespace Website.Pages
         public Menu menu = new Menu();
 
         public List<IMenuItem> menuEntreeItems;
+
         public List<IMenuItem> menuSideItems;
+
         public List<IMenuItem> menuDrinkItems;
+
         public List<IMenuItem> menuComboItems;
 
         [BindProperty]
@@ -70,6 +73,14 @@ namespace Website.Pages
                 menuSideItems = Menu.FilterMinPrice(menuSideItems, (double)minPrice);
                 menuDrinkItems = Menu.FilterMinPrice(menuDrinkItems, (double)minPrice);
                 menuComboItems = Menu.FilterMinPrice(menuComboItems, (double)minPrice);
+            }
+
+            if (maxPrice != null)
+            {
+                menuEntreeItems = Menu.FilterMaxPrice(menuEntreeItems, (double)maxPrice);
+                menuSideItems = Menu.FilterMaxPrice(menuSideItems, (double)maxPrice);
+                menuDrinkItems = Menu.FilterMaxPrice(menuDrinkItems, (double)maxPrice);
+                menuComboItems = Menu.FilterMaxPrice(menuComboItems, (double)maxPrice);
             }
         }
     }
