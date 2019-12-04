@@ -51,7 +51,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Overrides the ToString to make a list where each object in Available menu items is added as their full menu content, each to be followed by a new line.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns a string.</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -63,6 +63,12 @@ namespace DinoDiner.Menu
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Searches for the menu item and returns the list of menu items.
+        /// </summary>
+        /// <param name="menuItems">List of IMenuItem parameter.</param>
+        /// <param name="searchString">string to search for.</param>
+        /// <returns>Returns a list of IMenuItems.</returns>
         public static List<IMenuItem> Search(List<IMenuItem> menuItems, string searchString)
         {
             List<IMenuItem> result = new List<IMenuItem>();
@@ -77,6 +83,12 @@ namespace DinoDiner.Menu
             return result;
         }
 
+        /// <summary>
+        /// Filters the ingredients, this makes the filter only display menu items that exclude certain items.
+        /// </summary>
+        /// <param name="menuItems">List of IMenuItem parameter.</param>
+        /// <param name="ingredients">The list of ingredients parameter, takes strings.</param>
+        /// <returns>Returns a list of IMenuItems.</returns>
         public static List<IMenuItem> FilterIngredients(List<IMenuItem> menuItems, List<string> ingredients)
         {
             List<IMenuItem> result = new List<IMenuItem>();
@@ -99,6 +111,12 @@ namespace DinoDiner.Menu
             return result;
         }
 
+        /// <summary>
+        /// Filters the output to only display menu items that at least are a certain numbered price.
+        /// </summary>
+        /// <param name="menuItems">List of IMenuItem parameter.</param>
+        /// <param name="price">double paramater representing the price.</param>
+        /// <returns>Returns a list of IMenuItems.</returns>
         public static List<IMenuItem> FilterMinPrice(List<IMenuItem> menuItems, double price)
         {
             List<IMenuItem> result = new List<IMenuItem>();
@@ -112,6 +130,12 @@ namespace DinoDiner.Menu
             return result;
         }
 
+        /// <summary>
+        /// Filters the output to only display menu items that are no greater than a certain numbered price.
+        /// </summary>
+        /// <param name="menuItems">List of IMenuItem parameter.</param>
+        /// <param name="price">double paramater representing the price.</param>
+        /// <returns>Returns a list of IMenuItems.</returns>
         public static List<IMenuItem> FilterMaxPrice(List<IMenuItem> menuItems, double price)
         {
             List<IMenuItem> result = new List<IMenuItem>();
@@ -121,16 +145,6 @@ namespace DinoDiner.Menu
                 {
                     result.Add(item);
                 }
-            }
-            return result;
-        }
-
-        public static List<IMenuItem> FilterMenuCategory(List<IMenuItem> menuItems, IMenuItem type)
-        {
-            List<IMenuItem> result = new List<IMenuItem>();
-            foreach (IMenuItem item in menuItems)
-            {
-
             }
             return result;
         }
